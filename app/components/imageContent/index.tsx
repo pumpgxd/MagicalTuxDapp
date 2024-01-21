@@ -11,7 +11,7 @@ import Image from "next/image";
 import { FunctionComponent } from 'react';
 
 
-const HomeContent: FunctionComponent<{ src: string}> = (props) => {
+const ImageContent: FunctionComponent<{ src: string, borderRadius: string}> = (props) => {
     const [isShowing, setIsShowing] = useState(true)
 
     return (
@@ -25,6 +25,7 @@ const HomeContent: FunctionComponent<{ src: string}> = (props) => {
     leaveTo="opacity-0">
     <div>
           <Image
+            className={props.borderRadius}
              src={props.src}
              alt="Tux cat"
              width={500}
@@ -40,4 +41,4 @@ const HomeContent: FunctionComponent<{ src: string}> = (props) => {
 
 }
 
-export default HomeContent;
+export default ImageContent;
