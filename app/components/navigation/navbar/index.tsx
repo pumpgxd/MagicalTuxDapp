@@ -1,5 +1,5 @@
 import Image from "next/image";
-import WalletButton from "./wallet";
+import WalletConnect from "./walletConnect";
 import Link from "next/link";
 import Button from "../../button";
 const Navbar = () => {
@@ -33,7 +33,7 @@ const Navbar = () => {
                 </Link>
               </li>
             </ul>
-            <WalletButton />
+            <WalletConnect />
             </div>
                 
           </div>
