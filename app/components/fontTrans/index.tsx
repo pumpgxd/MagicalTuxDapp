@@ -1,13 +1,11 @@
 'use client'
-
 import { Transition } from "@headlessui/react";
 import { useState } from 'react';
 import React from 'react';
-import Image from "next/image";
 import { FunctionComponent } from 'react';
 
 
-const TextTrans: FunctionComponent<{ time: string, text: React.ReactNode}> = (props) => {
+const TextTrans: FunctionComponent<{ time: string, text: React.ReactNode, triggerNext: ()=>void}> = (props) => {
     const [isShowing, setIsShowing] = useState(true)
     const transTime = "transition-opacity duration-" + props.time;
 
@@ -18,6 +16,7 @@ const TextTrans: FunctionComponent<{ time: string, text: React.ReactNode}> = (pr
     enterFrom="opacity-0"
     enterTo="opacity-100"
     leave={transTime}
+    afterEnter={props.triggerNext}
     leaveFrom="opacity-100"
     leaveTo="opacity-0">
          {props.text}

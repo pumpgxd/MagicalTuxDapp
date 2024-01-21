@@ -25,8 +25,13 @@ const Navbar = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/mint">
-                <Button text="MINT"/>
+              <Link href="/optimism">
+                <Button text="OP"/>
+              </Link>
+              </li>
+              <li>
+                <Link href="/nfts">
+                <Button text="NFTs"/>
                 </Link>
               </li>
               <li>

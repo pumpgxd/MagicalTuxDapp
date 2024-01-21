@@ -1,3 +1,4 @@
+'use client'
 import React from "react"
 import ImageContent from "../components/imageContent";
 import TextTrans from "../components/fontTrans";
@@ -5,7 +6,7 @@ import TextTrans from "../components/fontTrans";
 const Token = () => {
     return (  
     <div className="m-auto flex flex-col items-center justify-between grid sm:grid-cols-3 gap-19 tracking-wide">
-        <TextTrans time="1000" text={
+        <TextTrans time="1000" triggerNext={()=>null} text={
         <div className="text-center text-white text-pretty">
         <p className="text-2xl underline">TOKENOMICS</p>
             <br/>
@@ -21,7 +22,7 @@ const Token = () => {
         </div>
         }></TextTrans>
         <ImageContent src="/tokenPageImage.jpeg" borderRadius="rounded-full"/>
-        <TextTrans time="1000" text={
+        <TextTrans time="1000" triggerNext={()=>null} text={
         <div className="text-center text-white text-pretty">    
             <p className="text-2xl underline">HOW TO BUY $TUX</p>
             <br/>
