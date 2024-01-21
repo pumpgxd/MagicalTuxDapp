@@ -1,12 +1,4 @@
 'use-client'
-import Image from "next/image";
-import { FaTelegram } from "react-icons/fa";
-import { FaSquareXTwitter } from "react-icons/fa6";
-import { FaChartBar } from "react-icons/fa";
-
-import { Web3Button } from "@web3modal/react";
-import { Transition } from "@headlessui/react";
-import {useState} from "react"
 import React from "react";
 import ImageContent from "./components/imageContent";
 
