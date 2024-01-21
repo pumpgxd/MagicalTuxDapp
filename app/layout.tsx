@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Ubuntu } from "next/font/google";
 import "./globals.css";
-import NavBar from "./components/navigation/navbar";
+import Navbar from "./components/navigation/navbar";
+import FooterBar from "./components/navigation/footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const ubuntu= Ubuntu({ subsets: ["latin"], weight: "700" });
 
 export const metadata: Metadata = {
   title: "Magical Tux",
@@ -17,9 +18,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <NavBar/>
-        {children}</body>
+      <body className={ubuntu.className}>
+        <div className="flex flex-col h-screen">
+        <Navbar/>
+        {children}
+        <FooterBar/>
+        </div>
+        </body>
     </html>
   );
 }
