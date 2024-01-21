@@ -30,7 +30,7 @@ const Token = () => {
             <p className="text-sm">or bridge of your choice</p>
             <br/>
             <p className="text-lg">2) Change Network</p>
-            <p className="text-sm">{'Confirm your wallet&apos;s network'}</p>
+            <p className="text-sm">{'Confirm your wallet\'s network'}</p>
             <p className="text-sm">is set to Optimism</p>
             <br/>
             <p className="text-lg">3) Buy Magical $TUX</p>
