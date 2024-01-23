@@ -2,34 +2,40 @@
 import React from "react"
 import TextTrans from "../fontTrans"
 import { useState } from "react"
+import Image from "next/image"
+import Card from "../card"
 
 const OpContent = () => {
     const [showOne, setShowOne] = useState(false);
     const [showTwo, setShowTwo] = useState(false);
-    const [showThree, setShowThree] = useState(false);
 
 return (
-    <div className="m-auto items-center text-white flex grid sm:grid-rows-2 gap-20">
+    <div className="m-auto items-center text-white flex grid sm:grid-rows-2 gap-16">
         <TextTrans time="1000" triggerNext={()=> setShowOne(true)} text={
-        <div  className="m-10 text-center max-h-8">
-            <p className="text-2xl">GET STARTED WITH THE SUPERCHAIN</p>
+        <div  className="text-center items-center flex grid sm:grid-rows-2 gap-5">
+            <p className="text-2xl">WELCOME TO THE SUPERCHAIN</p>
+            <div className="m-auto">
+            <Image       
+              src="/Optimism-Red-48.svg"
+              alt="Optimism word logo"
+              width={600}
+              height={200}
+              priority
+            />
+            </div>
         </div>}/>
-        <div className="m-auto flex flex-col items-center justify-between grid sm:grid-cols-3 gap-20">
+    <div className="h-56">
+        {/* <div className="m-auto h-max flex flex-col items-center justify-between grid sm:grid-cols-3 gap-24"> */}
             { showOne &&
             <TextTrans time="1000" triggerNext={()=> setShowTwo(true)}text={
-               <p>GET STARTED WITH OPTIMISM</p>
-               }/>
-            }
-            { showTwo && 
-            <TextTrans time="1000" triggerNext={()=> setShowThree(true)}text={
-            <p>BRIDGE ETH TO OPTIMISM</p>
+                <div className="h-56 -auto shrink flex flex-col items-center justify-between grid sm:grid-cols-3 gap-24">
+                <Card label={"GET STARTED WITH OPTIMISM"} src="/OP-Logo.svg" width={180} rounded="none"/>
+                <Card label={"BRIDGE ETH TO OPTIMISM"} src="/optimism-city.png" width={270} rounded="none"/>
+                <Card label={"OPTIMISM AND NFTS"} src="/tuxNft.jpeg" width={190} rounded="full"/>
+                </div>
             }/>
             }
-            { showThree && 
-            <TextTrans time="1000" triggerNext={() => null} text={
-            <p>OPTIMISM AND NFTS</p>
-            }/>
-            }
+        {/* </div> */}
         </div>
     </div>
     )
