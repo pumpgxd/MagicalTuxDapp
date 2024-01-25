@@ -20,6 +20,9 @@ const WalletButton = () => {
             },
           })}
           switchToActiveChain={true}
+          modalTitleIconUrl={
+            "https://cryptologos.cc/logos/optimism-ethereum-op-logo.png?v=029"
+          }
           welcomeScreen={{
             img: {
               src: "/main-cat.svg",
