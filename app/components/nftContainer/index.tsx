@@ -1,6 +1,7 @@
 import React from "react"
 import { useState, useRef, useEffect } from 'react';
 import Image from "next/image";
+import TextTrans from "../fontTrans";
 
 const backgrounds = [
     '/bgOne.png',
@@ -46,6 +47,7 @@ const NftContainer = () => {
 
     return (
         <div className="m-auto flex flex-row items-center justify-between grid grid-cols-2 rounded-2xl">
+         <TextTrans time="1000" triggerNext={() => null} text={   
         <div className="flex text-white flex-col items-start rounded-lg">
         <div className="p-4">
             <h3 className="pb-2">Background: </h3>
@@ -85,10 +87,14 @@ const NftContainer = () => {
             </h3>
         </div>
         </div>
+        }/>
+        <TextTrans time="1000" triggerNext={() => null} text={
         <div>
-            <canvas ref={canvasRef} width="400" height="400" className="rounded-xl border-2 border-[#ffffff]" style={{}}/>
+            <canvas ref={canvasRef} width="400" height="400" className="rounded-xl border-2 border-[#ffffff]" />
         </div>
+        }/>
     </div>
+   
 
     )
 }
