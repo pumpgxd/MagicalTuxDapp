@@ -3,6 +3,7 @@ import { Lato } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/navigation/navbar";
 import FooterBar from "./components/navigation/footer";
+import Providers from "./_providers/providers";
 
 const ubuntu= Lato({ subsets: ["latin"], weight: "700" });
 
@@ -20,9 +21,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={ubuntu.className}>
         <div className="flex flex-col h-screen">
-        <Navbar/>
-        {children}
-        <FooterBar/>
+          <Providers>
+              <Navbar/>
+                {children}
+              <FooterBar/>
+        </Providers>
         </div>
         </body>
     </html>

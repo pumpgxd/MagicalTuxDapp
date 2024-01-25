@@ -1,5 +1,6 @@
+"use client"
 import Image from "next/image";
-import WalletConnect from "./walletConnect";
+import WalletButton from "./walletButton";
 import Link from "next/link";
 import Button from "../../button";
 const Navbar = () => {
@@ -40,7 +41,7 @@ const Navbar = () => {
                 </Link>
               </li>
             </ul>
-            <WalletConnect />
+            <WalletButton />
             </div>
                 
           </div>

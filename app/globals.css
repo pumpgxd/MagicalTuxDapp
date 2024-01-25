@@ -17,3 +17,11 @@ body {
     text-wrap: balance;
   }
 }
+
+.walletButton {
+  min-width: none !important;
+}
+.walletButton:hover{
+  background-color: black;
+  color: white;
+}
