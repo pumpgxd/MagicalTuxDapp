@@ -1,10 +1,23 @@
+'use client'
 import React from "react"
-const Mint = () => {
+import NftContainer from "../components/nftContainer"
 
+const backgrounds = [
+    '/bgOne.png',
+    '/bgTwo.png',
+    '/bgThree.png'
+]
+
+const cats = [
+    '/catOne.png',
+    '/catTwo.png',
+    '/catThree.png'
+]
+
+const Mint = () => {
+    
 return (
-    <div className="m-auto flex flex-col items-center justify-between grid sm:grid-cols-2 gap-20">
-        <p>MINT NFTS</p>
-    </div>
+    <NftContainer/>
     )
 }
 
