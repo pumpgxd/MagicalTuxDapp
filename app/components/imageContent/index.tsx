@@ -12,13 +12,13 @@ const ImageContent: FunctionComponent<{ src: string, borderRadius: string}> = (p
 
     return (
     <Transition appear={true}
-    show={isShowing}
-    enter="transition-opacity duration-1000"
-    enterFrom="opacity-0"
-    enterTo="opacity-100"
-    leave="transition-opacity duration-1000"
-    leaveFrom="opacity-100"
-    leaveTo="opacity-0">
+        show={isShowing}
+        enter="transition-opacity duration-1000"
+        enterFrom="opacity-0"
+        enterTo="opacity-100"
+        leave="transition-opacity duration-1000"
+        leaveFrom="opacity-100"
+        leaveTo="opacity-0">
     <div>
           <Image
             className={props.borderRadius}

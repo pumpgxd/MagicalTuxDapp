@@ -10,17 +10,16 @@ const TextTrans: FunctionComponent<{ time: string, text: React.ReactNode, trigge
     const transTime = "transition-opacity duration-" + props.time;
 
     return (
-    <Transition appear={true}
-    show={isShowing}
-    enter={transTime}
-    enterFrom="opacity-0"
-    enterTo="opacity-100"
-    leave={transTime}
-    afterEnter={props.triggerNext}
-    leaveFrom="opacity-100"
-    leaveTo="opacity-0">
+        <Transition appear={true}
+            show={isShowing}
+            enter={transTime}
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave={transTime}
+            afterEnter={props.triggerNext}
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0">
          {props.text}
-    
     </Transition> 
 
     )

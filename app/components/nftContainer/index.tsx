@@ -2,7 +2,7 @@ import React from "react"
 import { useState, useRef, useEffect } from 'react';
 import Image from "next/image";
 import TextTrans from "../fontTrans";
-import { useAddress, useContract, useTotalCount, Web3Button, useMintNFT, darkTheme, MediaRenderer, useNFT, ThirdwebNftMedia, useMetadata } from "@thirdweb-dev/react";
+import { useAddress, useContract, useTotalCount, Web3Button, useMintNFT, darkTheme, MediaRenderer, useNFT, ThirdwebNftMedia, useMetadata, useNFTs } from "@thirdweb-dev/react";
 
 
 const backgrounds = [
@@ -22,14 +22,11 @@ const NftContainer = () => {
     const contractAddress = process.env.NEXT_PUBLIC_CONTRACT_ADDY;
     const address  = useAddress();
     const { contract } = useContract(contractAddress, 'nft-collection');
-    const { data: totalCount} = useTotalCount(contract);
-    const { mutateAsync: mintNft, isLoading, error } = useMintNFT(contract);
     // const { data: nft } = useNFT(contract, 27);
-    const [background, setBackground] = useState<string>(backgrounds[1]);
-    const [cat, setCat] = useState<string>(cats[2]);
-
+    const [background, setBackground] = useState<string>('');
+    const [cat, setCat] = useState<string>('');
+    const [isMinting, setIsMinting] = useState(false);
     const canvasRef = useRef<HTMLCanvasElement>(null)
-    console.log()
 
     useEffect(() => {
         if (!canvasRef.current) return;
@@ -68,7 +65,7 @@ const NftContainer = () => {
       };
 
       const mint = async (blob: Blob) => {
-        const name = "TuxMember"
+        const name = "TuxMember" 
         const formData = new FormData();
         formData.append('image', blob, 'tuxMemberNft.png');
 
@@ -80,15 +77,9 @@ const NftContainer = () => {
 
 
         const uri = await uploadResponse.json();
-         console.log(uri);   
-
-        // const nft = mintNft({
-        //         to: address || "",
-        //         metadata: metadata
-        // })
-
+        setIsMinting(false);
         return contract?.mintTo(address || "", uri)
-
+    
 
         } catch (e) {
             console.error("Error ocurred trying to mint NFT:", e)
@@ -134,9 +125,13 @@ const NftContainer = () => {
         </div>   
         <div className="p-8 flex items-center  w-auto">
             <Web3Button
+            
             contractAddress={contractAddress || ""}
-            action={() => uploadAndMint()
+            action={async () => await uploadAndMint()
             }
+            isDisabled={isMinting}
+            onSubmit={() => setIsMinting(true)}
+            
             theme={darkTheme({
                 colors: {
                   accentText: "#FF0420",
@@ -149,7 +144,9 @@ const NftContainer = () => {
                   primaryButtonText: "#ffffff",
                   secondaryButtonText: "#ffffff",
             }})}>
-                MINT NFT
+               { !isMinting ? "MINT NFT" :
+                    "MINTING"
+                 }  
             </Web3Button>
         </div>
         </div>

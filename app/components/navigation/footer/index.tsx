@@ -5,7 +5,7 @@ import React from "react"
 
 const FooterBar = () => {
     return (
-        <div className="w-full h-20 sticky bottom-0">
+        <div className="w-full mt-20 h-20 bottom-0 bg-[#000000]">
           <div className="container mx-auto px-8 h-full w-80">
         <div className="flex items-center text-center m-auto px-4 justify-between">
         <a className=""
