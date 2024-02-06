@@ -1,10 +1,10 @@
 import React from "react"
 import { useState, useRef, useEffect } from 'react';
-import Image from "next/image";
+import NextImage from "next/image";
 import TextTrans from "../fontTrans";
 import { useAddress, useContract, useTotalCount, Web3Button, useMintNFT, darkTheme, MediaRenderer, useNFT, ThirdwebNftMedia, useMetadata, useNFTs } from "@thirdweb-dev/react";
 import { toast } from 'react-hot-toast';
-
+import { chakra } from "@chakra-ui/react";
 const backgrounds = [
     '/bgOne.png',
     '/bgTwo.png',
@@ -16,6 +16,11 @@ const cats = [
     '/catTwo.png',
     '/catThree.png'
 ]
+
+const NftTrait = chakra(NextImage, {
+    baseStyle: { maxH: 120, maxW: 120 },
+    shouldForwardProp: (prop) => ['width', 'height', 'src', 'alt', 'border', 'borderWidth', 'borderStyle', 'borderColor', 'onClick'].includes(prop),
+  })
 
 
 const NftContainer = () => {
@@ -54,22 +59,6 @@ const NftContainer = () => {
         canvas.toBlob
     }, 
     [background, cat])
-
-    // useEffect(() => {
-    //     let text = "MINTING";
-    //     if (isMinting){
-    //     while (isMinting){
-    //         if (text.length >= 10){
-    //             text = "MINTING";
-    //         }
-    //         text += ".";
-    //         setInterval(() => setMintingText(text), 1000);
-    //         console.log(text)
-    //     }
-
-    //     console.log(text)
-    //     }   
-    // }, [isMinting])
 
     const uploadAndMint = async () => {
         const canvas = canvasRef.current;
@@ -133,13 +122,16 @@ const NftContainer = () => {
             <h3 className="pb-2">Background: </h3>
             <div className="flex flex-row items-start space-x-2">
             {backgrounds.map((bg) => (
-            <Image
-                className={background === bg ? "rounded-xl border-2 border-[#0e04c9]" : "rounded-xl border-2 border-[#7e7d86]"}
+            <NftTrait
+                className="rounded-xl"
                 key={bg}
                 alt={bg}
                 src={bg}
+                borderWidth={1}
+                borderStyle="solid"
+                borderColor={background === bg ? '#0e04c9' : "white"}
                 onClick={() => setBackground(bg)}
-                width={80}
+                width={100}
                 height={100}
             />)
             )}
@@ -149,13 +141,16 @@ const NftContainer = () => {
             <h3 className="pb-2">Cat:</h3>    
             <div className="flex flex-row items-start space-x-2">
             {cats.map((c) => (
-            <Image
-                className={cat === c ? "bg-slate-800 rounded-xl border border-[#0e04c9]" : "bg-slate-800 rounded-xl border border-[#7e7d86]"}
+            <NftTrait
+                borderWidth={1}
+                borderStyle="solid"
+                borderColor={cat === c ? '#0e04c9' : "white"}
+                className="bg-slate-800 rounded-xl"
                 key={c}
                 alt={c}
                 src={c}
                 onClick={() => setCat(c)}
-                width={80}
+                width={100}
                 height={100}
             />)
             )}
@@ -163,7 +158,7 @@ const NftContainer = () => {
         </div>   
         <div className="p-8 flex items-center  w-auto">
             <Web3Button
-            
+            className="walletButton"
             contractAddress={contractAddress || ""}
             action={async () => await uploadAndMint()
             }

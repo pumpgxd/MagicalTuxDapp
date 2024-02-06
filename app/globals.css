@@ -25,3 +25,9 @@ body {
   background-color: black;
   color: white;
 }
+
+.nftTrait {
+  border: 2 !important;
+  border-color: white !important;
+
+}
