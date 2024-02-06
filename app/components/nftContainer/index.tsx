@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from 'react';
 import Image from "next/image";
 import TextTrans from "../fontTrans";
 import { useAddress, useContract, useTotalCount, Web3Button, useMintNFT, darkTheme, MediaRenderer, useNFT, ThirdwebNftMedia, useMetadata, useNFTs } from "@thirdweb-dev/react";
-
+import { toast } from 'react-hot-toast';
 
 const backgrounds = [
     '/bgOne.png',
@@ -23,10 +23,12 @@ const NftContainer = () => {
     const address  = useAddress();
     const { contract } = useContract(contractAddress, 'nft-collection');
     // const { data: nft } = useNFT(contract, 27);
-    const [background, setBackground] = useState<string>('');
-    const [cat, setCat] = useState<string>('');
+    // const { mutate: mintNft, isLoading, error} = useMintNFT(contract)
+    const [background, setBackground] = useState<string>('/bgTwo.png');
+    const [cat, setCat] = useState<string>('/catThree.png');
     const [isMinting, setIsMinting] = useState(false);
     const canvasRef = useRef<HTMLCanvasElement>(null)
+    // const [mintingText, setMintingText] = useState<string>('MINTING');
 
     useEffect(() => {
         if (!canvasRef.current) return;
@@ -53,6 +55,22 @@ const NftContainer = () => {
     }, 
     [background, cat])
 
+    // useEffect(() => {
+    //     let text = "MINTING";
+    //     if (isMinting){
+    //     while (isMinting){
+    //         if (text.length >= 10){
+    //             text = "MINTING";
+    //         }
+    //         text += ".";
+    //         setInterval(() => setMintingText(text), 1000);
+    //         console.log(text)
+    //     }
+
+    //     console.log(text)
+    //     }   
+    // }, [isMinting])
+
     const uploadAndMint = async () => {
         const canvas = canvasRef.current;
         if(canvas) {
@@ -65,6 +83,7 @@ const NftContainer = () => {
       };
 
       const mint = async (blob: Blob) => {
+        const loadingToast = toast.loading("Minting...")
         const name = "TuxMember" 
         const formData = new FormData();
         formData.append('image', blob, 'tuxMemberNft.png');
@@ -76,14 +95,33 @@ const NftContainer = () => {
             })
 
 
-        const uri = await uploadResponse.json();
-        setIsMinting(false);
-        return contract?.mintTo(address || "", uri)
-    
+        const metadata = await uploadResponse.json();
+        const tx = await contract?.mintTo(address || "", metadata)
+       
+        const nft = await tx?.data();  
+        console.log(tx?.receipt)  
+        console.log(nft);
+        toast.dismiss(loadingToast);
+        handleSuccessMint();
+        return nft;     
 
         } catch (e) {
+            toast.dismiss(loadingToast);
+            handleErrorMint()
             console.error("Error ocurred trying to mint NFT:", e)
+            return;
         }
+      }
+
+      const handleSuccessMint = () => {
+        toast.success("NFT Successfully Minted!")
+        setIsMinting(false);
+      }
+
+
+      const handleErrorMint = () => {
+        toast.error("Transaction Rejected")
+        setIsMinting(false);
       }
 
 
@@ -96,7 +134,7 @@ const NftContainer = () => {
             <div className="flex flex-row items-start space-x-2">
             {backgrounds.map((bg) => (
             <Image
-                className={`rounded-xl border-2 border-${background === bg ? '[#0e04c9]' : '[#7e7d86]'}`}
+                className={background === bg ? "rounded-xl border-2 border-[#0e04c9]" : "rounded-xl border-2 border-[#7e7d86]"}
                 key={bg}
                 alt={bg}
                 src={bg}
@@ -112,7 +150,7 @@ const NftContainer = () => {
             <div className="flex flex-row items-start space-x-2">
             {cats.map((c) => (
             <Image
-                className={`bg-slate-800 rounded-xl border border-${cat === c ? '[#0e04c9]' : '[#7e7d86]'}`}
+                className={cat === c ? "bg-slate-800 rounded-xl border border-[#0e04c9]" : "bg-slate-800 rounded-xl border border-[#7e7d86]"}
                 key={c}
                 alt={c}
                 src={c}
@@ -131,7 +169,6 @@ const NftContainer = () => {
             }
             isDisabled={isMinting}
             onSubmit={() => setIsMinting(true)}
-            
             theme={darkTheme({
                 colors: {
                   accentText: "#FF0420",
@@ -140,12 +177,12 @@ const NftContainer = () => {
                   connectedButtonBg: "#000000",
                   primaryText: "#ffffff",
                   borderColor: "#FF0420",
-                  primaryButtonBg: "#FF0420",
+                  primaryButtonBg: isMinting ? "#000000" : "#FF0420",
                   primaryButtonText: "#ffffff",
                   secondaryButtonText: "#ffffff",
             }})}>
                { !isMinting ? "MINT NFT" :
-                    "MINTING"
+                    "MINTING..."
                  }  
             </Web3Button>
         </div>

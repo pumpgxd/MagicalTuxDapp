@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Lato } from "next/font/google";
+import { Toaster } from "react-hot-toast";
 import "./globals.css";
 import Navbar from "./components/navigation/navbar";
 import FooterBar from "./components/navigation/footer";
@@ -23,6 +24,18 @@ export default function RootLayout({
         <div className="flex flex-col h-screen">
           <Providers>
               <Navbar/>
+              <Toaster position="bottom-right"
+                toastOptions={{
+                  style: {
+                    padding: '40px',
+                    background: '#000000',
+                    color: "#FFFFFF"
+                  }, 
+                  success: {
+                    duration: 4000
+                  }
+                  
+                }}/>
                 {children}
               <FooterBar/>
         </Providers>

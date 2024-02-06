@@ -5,7 +5,7 @@ import TextTrans from "../components/fontTrans";
 
 const Token = () => {
     return (  
-    <div className="m-auto flex flex-col items-center justify-between grid sm:grid-cols-3 gap-19 tracking-wide">
+    <div className="m-auto flex flex-col items-center justify-between grid sm:grid-cols-3 gap-19 tracking-wide pt-10">
         <TextTrans time="1000" triggerNext={()=>null} text={
         <div className="text-center text-white text-pretty">
         <p className="text-2xl underline">TOKENOMICS</p>
