@@ -2,7 +2,9 @@
 import Image from "next/image";
 import WalletButton from "./walletButton";
 import Link from "next/link";
-import Button from "../../button";
+import NavButton from "../../button";
+import {Menu , MenuButton, MenuList, MenuItem }from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
 const Navbar = () => {
     return (
       <>
@@ -22,22 +24,42 @@ const Navbar = () => {
             <ul className="hidden md:flex gap-x-12 text-white text-lg">
               <li>
                 <Link href="/token">
-                  <Button text="$TUX"/>
+                  <NavButton text="$TUX"/>
                 </Link>
               </li>
               <li>
               <Link href="/optimism">
-                <Button text="OP"/>
+                <NavButton text="OP"/>
               </Link>
               </li>
               <li>
-                <Link href="/nfts">
-                <Button text="NFTs"/>
-                </Link>
+                <Menu>
+                  <MenuButton as={Button}
+                    px={2}
+                    py={2}
+                    fontSize={18}
+                    textColor="white"
+                    _active={{bg: 'black', textColor: 'white'}}
+                    _hover={{ bg: 'black', textColor: "white" }}
+                    bg="#FF0420">
+                    NFTs
+                  </MenuButton>
+                  <MenuList bg="black">
+                    <MenuItem as={Link} href="/nfts" bg="black" _hover={{bg: "gray.800"}}>
+                      Mint
+                    </MenuItem>
+                    <MenuItem as={Link} href="/nftPortfolio" bg="black" _hover={{bg: "gray.800"}}>
+                      Portfolio
+                    </MenuItem>
+                    <MenuItem as={Link} href="/marketplace" bg="black" _hover={{bg: "gray.800"}}>
+                      Marketplace
+                    </MenuItem>
+                </MenuList>
+                </Menu>
               </li>
               <li>
                 <Link href="/vision">
-                <Button text="VISION"/>
+                <NavButton text="VISION"/>
                 </Link>
               </li>
             </ul>

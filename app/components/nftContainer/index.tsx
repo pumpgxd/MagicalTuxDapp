@@ -158,7 +158,7 @@ const NftContainer = () => {
         </div>   
         <div className="p-8 flex items-center  w-auto">
             <Web3Button
-            className="walletButton"
+            className="hover:bg-white hover:text-black"
             contractAddress={contractAddress || ""}
             action={async () => await uploadAndMint()
             }

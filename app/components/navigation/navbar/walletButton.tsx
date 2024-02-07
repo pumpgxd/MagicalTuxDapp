@@ -1,8 +1,7 @@
 "use client"
-import { ConnectWallet, useAddress, darkTheme } from '@thirdweb-dev/react';
+import { ConnectWallet, darkTheme } from '@thirdweb-dev/react';
 import React from 'react';
 const WalletButton = () => {
-    const address = useAddress();
     return (
         <div className='hidden md:flex w-20'>
         <ConnectWallet btnTitle="CONNECT" className="walletButton"

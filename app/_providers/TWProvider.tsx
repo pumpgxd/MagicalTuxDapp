@@ -1,5 +1,5 @@
 import { ThirdwebProvider, metamaskWallet, coinbaseWallet, walletConnect, trustWallet, rainbowWallet, zerionWallet } from "@thirdweb-dev/react";
-import { OpSepoliaTestnet } from "@thirdweb-dev/chains";
+import { OpSepoliaTestnet, Optimism } from "@thirdweb-dev/chains";
 import React from 'react'
 
 type TWProviderType = {
@@ -19,7 +19,7 @@ return (
             rainbowWallet(),
             zerionWallet()
         ]} 
-        activeChain={OpSepoliaTestnet} 
+        supportedChains={[OpSepoliaTestnet, Optimism]}
         clientId={process.env.TUX_CLIENT_ID}>
         {children}
     </ThirdwebProvider>

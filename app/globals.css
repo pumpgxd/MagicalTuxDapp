@@ -24,10 +24,8 @@ body {
 .walletButton:hover{
   background-color: black;
   color: white;
-}
-
-.nftTrait {
-  border: 2 !important;
   border-color: white !important;
-
+  border: '2px' !important;
+  border-style: "solid" !important;
 }
+
