@@ -6,7 +6,7 @@ const Optimism = () => {
 
 return (
 
-    <OpContent/>
+    <OpContent />
     )
 }
 
