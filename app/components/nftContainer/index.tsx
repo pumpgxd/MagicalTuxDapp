@@ -24,7 +24,7 @@ const NftTrait = chakra(NextImage, {
 
 
 const NftContainer = () => {
-    const contractAddress = process.env.NEXT_PUBLIC_CONTRACT_ADDY;
+    const contractAddress = process.env.NEXT_PUBLIC_NFT_GEN_ADDY;
     const address  = useAddress();
     const { contract } = useContract(contractAddress, 'nft-collection');
     // const { data: nft } = useNFT(contract, 27);

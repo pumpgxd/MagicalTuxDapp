@@ -6,7 +6,7 @@ import SocketBridge from "../components/socketBridge";
 const Bridge = () => {
 
     return (
-        <div className="min-h-3/5">
+        <div>
             <SocketBridge/>
         </div>
     )
