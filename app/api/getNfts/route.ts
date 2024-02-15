@@ -21,11 +21,11 @@ export async function POST(req: NextRequest){
     console.log("...");
 
     // Print contract address and tokenId for each NFT:
-    for (const nft of nftsForOwner.ownedNfts) {
-    console.log("===");
-    console.log("contract address:", nft.contract.address);
-    console.log("token ID:", nft.tokenId);
-    }
+    // for (const nft of nftsForOwner.ownedNfts) {
+    // console.log("===");
+    // console.log("contract address:", nft.contract.address);
+    // console.log("token ID:", nft.tokenId);
+    // }
 
     return NextResponse.json(nftsForOwner, {
         status: 200

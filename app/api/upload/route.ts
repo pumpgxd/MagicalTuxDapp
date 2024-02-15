@@ -1,4 +1,4 @@
-import { ThirdwebStorage, IpfsUploader } from '@thirdweb-dev/storage';
+import { ThirdwebStorage } from '@thirdweb-dev/storage';
 import { NextResponse, NextRequest } from 'next/server'
 
 

@@ -33,6 +33,11 @@ const Navbar = () => {
               </Link>
               </li>
               <li>
+              <Link href="/bridge">
+                <NavButton text="BRIDGE"/>
+              </Link>
+              </li>
+              <li>
                 <Menu>
                   <MenuButton as={Button}
                     px={2}
