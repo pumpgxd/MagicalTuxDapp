@@ -2,13 +2,6 @@ import { ThirdwebStorage } from '@thirdweb-dev/storage';
 import { NextResponse, NextRequest } from 'next/server'
 
 
-// export const config = {
-//     api: {
-//       bodyParser: false,
-//     },
-//   };
-
-
 export async function POST(req: NextRequest) {
     if(req.method != 'POST') {
        return NextResponse.json({

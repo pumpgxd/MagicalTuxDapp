@@ -40,7 +40,7 @@ const PortfolioContainer = () => {
             {userNfts  && 
             <div className="pt-10 flex m-auto flex-wrap items-center justify-center z-0">
             {userNfts.filter(i => i.raw.metadata.image != null).map((nft) => (
-                    <div className="mx-4 my-4 flex h-80 w-64 cursor-pointer flex-col rounded-lg border border-white items-center justify-center gap-5 bg-transparent transition-all duration-300 hover:scale-105 hover:z-0">
+                    <div key={nft.tokenId} className="mx-4 my-4 flex h-80 w-64 cursor-pointer flex-col rounded-lg border border-white items-center justify-center gap-5 bg-transparent transition-all duration-300 hover:scale-105 hover:z-0">
                         <ThirdwebNftMedia
                         height="100%"
                         width='100%'
