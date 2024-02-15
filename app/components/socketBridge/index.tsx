@@ -40,8 +40,7 @@ const SocketBridge = () => {
                     "interactive": "rgb(31,34,44)",
                     "onInteractive": "rgb(240,240,240)",
                     "text": "rgb(255,255,255)",
-                    "secondaryText": "rgb(200,200,200)",
-                    "borderRadius": 5
+                    "secondaryText": "rgb(200,200,200)"
                     
                   }
             }
