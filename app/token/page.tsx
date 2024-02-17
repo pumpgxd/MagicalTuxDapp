@@ -2,6 +2,7 @@
 import React from "react"
 import ImageContent from "../components/imageContent";
 import TextTrans from "../components/fontTrans";
+import Link from "next/link";
 
 const Token = () => {
     return (  
@@ -37,6 +38,8 @@ const Token = () => {
             <p className="text-lg">3) Buy Magical $TUX</p>
             <p className="text-sm">Enter official CA on your favorite</p>
             <p className="text-sm">DEX and swap</p>
+            <br/>
+            <Link href="/bridge" className="hover:text-[#FF0420]">Or Bridge & Swap with Magical Tux & LI.FI!</Link>
         </div>
         }></TextTrans>
     </div>

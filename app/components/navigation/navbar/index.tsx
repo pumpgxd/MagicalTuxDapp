@@ -34,7 +34,7 @@ const Navbar = () => {
               </li>
               <li>
               <Link href="/bridge">
-                <NavButton text="BRIDGE"/>
+                <NavButton text="BRIDGE/SWAP"/>
               </Link>
               </li>
               <li>

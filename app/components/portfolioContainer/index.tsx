@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react'
-import { useAddress, useChainId } from "@thirdweb-dev/react";
+import { useAddress, useChainId, useWallet } from "@thirdweb-dev/react";
 import { ThirdwebNftMedia } from '@thirdweb-dev/react';
 
 
@@ -29,7 +29,7 @@ const PortfolioContainer = () => {
             fetchNfts()
           
         }
-    }, [address])
+    }, [address, chainId])
 
 
     return (

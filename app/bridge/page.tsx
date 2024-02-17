@@ -1,13 +1,13 @@
 "use client"
 import React from "react"
-import SocketBridge from "../components/socketBridge";
+import BridgeWidge from "../components/bridgeWidge";
 
 
 const Bridge = () => {
 
     return (
         <div>
-            <SocketBridge/>
+            <BridgeWidge/>
         </div>
     )
 
