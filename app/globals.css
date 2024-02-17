@@ -17,3 +17,15 @@ body {
     text-wrap: balance;
   }
 }
+
+.walletButton {
+  min-width: none !important;
+}
+.walletButton:hover{
+  background-color: black;
+  color: white;
+  border-color: white !important;
+  border: '2px' !important;
+  border-style: "solid" !important;
+}
+
