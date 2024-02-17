@@ -11,7 +11,7 @@ const OpContent = () => {
 
 return (
     <TextTrans time="1000" triggerNext={()=> setShowOne(true)} text={
-    <div className="m-auto mb-36 items-center text-white flex grid sm:grid-rows-2 z-0 ">
+    <div className="m-auto pb-36 items-center text-white flex grid sm:grid-rows-2 z-0">
         {/* <TextTrans time="1000" triggerNext={()=> setShowOne(true)} text={ */}
         <div  className="text-center items-center flex grid sm:grid-rows-2 gap-5 px-36 py-10">
             <p className="text-2xl">WELCOME TO THE SUPERCHAIN</p>

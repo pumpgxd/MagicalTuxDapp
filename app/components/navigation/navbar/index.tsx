@@ -8,7 +8,7 @@ import { Button } from "@chakra-ui/react";
 const Navbar = () => {
     return (
       <>
-        <div className="w-full h-20 bg-[#FF0420] sticky top-0 z-10">
+        <div className="w-full flex h-20 bg-[#FF0420] sticky top-0 z-10">
           <div className="container mx-auto px-4 h-full">
             <div className="flex justify-between items-center h-full text-[#FFFFFF]">
             <Link href="/">
@@ -21,23 +21,40 @@ const Navbar = () => {
               priority
             />
             </Link>
-            <ul className="hidden md:flex gap-x-12 text-white text-lg">
+            <ul className="gap-x-12 flex text-white text-lg">
               <li>
-                <Link href="/token">
-                  <NavButton text="$TUX"/>
-                </Link>
+              <Menu>
+                  <MenuButton as={Button}
+                    px={2}
+                    py={2}
+                    fontSize={18}
+                    textColor="white"
+                    _active={{bg: 'black', textColor: 'white'}}
+                    _hover={{ bg: 'black', textColor: "white" }}
+                    bg="#FF0420">
+                    $TUX
+                  </MenuButton>
+                  <MenuList bg="black">
+                    <MenuItem as={Link} href="/token" bg="black" _hover={{bg: "gray.800"}}>
+                      Token
+                    </MenuItem>
+                    <MenuItem as={Link} href="/vision" bg="black" _hover={{bg: "gray.800"}}>
+                      Vision
+                    </MenuItem>
+                </MenuList>
+                </Menu>
               </li>
               <li>
               <Link href="/optimism">
                 <NavButton text="OP"/>
               </Link>
               </li>
-              <li>
+              <li className="hidden md:flex">
               <Link href="/bridge">
                 <NavButton text="BRIDGE/SWAP"/>
               </Link>
               </li>
-              <li>
+              <li className="hidden md:flex">
                 <Menu>
                   <MenuButton as={Button}
                     px={2}
@@ -62,13 +79,13 @@ const Navbar = () => {
                 </MenuList>
                 </Menu>
               </li>
-              <li>
+              {/* <li>
                 <Link href="/vision">
                 <NavButton text="VISION"/>
                 </Link>
-              </li>
+              </li> */}
             </ul>
-            <WalletButton />
+            <WalletButton/>
             </div>
                 
           </div>

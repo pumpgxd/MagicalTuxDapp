@@ -45,6 +45,10 @@ export const Widget = () => {
                 primary: { main: '#FF0420' },
                 secondary: { main: '#F5B5FF' },
               },
+              typography: {
+                fontFamily: "Lato:wght@400",
+                
+              }
           },
           appearance: 'dark',
           variant: 'expandable',

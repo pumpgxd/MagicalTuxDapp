@@ -19,7 +19,7 @@ const cats = [
 
 const NftTrait = chakra(NextImage, {
     baseStyle: { maxH: 120, maxW: 120 },
-    shouldForwardProp: (prop) => ['width', 'height', 'src', 'alt', 'border', 'borderWidth', 'borderStyle', 'borderColor', 'onClick'].includes(prop),
+    shouldForwardProp: (prop) => ['width', 'height', 'src', 'alt', 'border', 'borderWidth', 'borderStyle', 'borderColor', 'onClick', 'onHover'].includes(prop),
   })
 
 
@@ -123,13 +123,13 @@ const NftContainer = () => {
             <div className="flex flex-row items-start space-x-2">
             {backgrounds.map((bg) => (
             <NftTrait
-                className="rounded-xl"
+                className="rounded-xl cursor-pointer hover:scale-105"
                 key={bg}
                 alt={bg}
                 src={bg}
-                borderWidth={1}
+                borderWidth={background === bg ? 2 : 1}
                 borderStyle="solid"
-                borderColor={background === bg ? '#0e04c9' : "white"}
+                borderColor={background === bg ? '#194db5' : "white"}
                 onClick={() => setBackground(bg)}
                 width={100}
                 height={100}
@@ -142,10 +142,10 @@ const NftContainer = () => {
             <div className="flex flex-row items-start space-x-2">
             {cats.map((c) => (
             <NftTrait
-                borderWidth={1}
+                borderWidth={cat === c ? 2 : 1}
                 borderStyle="solid"
-                borderColor={cat === c ? '#0e04c9' : "white"}
-                className="bg-slate-800 rounded-xl"
+                borderColor={cat === c ? '#194db5' : "white"}
+                className="bg-slate-800 rounded-xl cursor-pointer hover:scale-105"
                 key={c}
                 alt={c}
                 src={c}

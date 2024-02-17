@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={ubuntu.className}>
-        <div className="flex flex-col h-screen">
+        <div className="flex flex-col h-screen justify-between">
           <Providers>
               <Navbar/>
               <ParticlesBackground/>
