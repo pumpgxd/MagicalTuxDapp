@@ -4,6 +4,7 @@ import { NextRequest, NextResponse } from 'next/server';
 const settings = {
     apiKey: process.env.ALCHEMY_API_KEY,
     network: Network.OPT_SEPOLIA,
+    mode: "no-cors"
 };
 
 
@@ -21,12 +22,13 @@ export async function POST(req: NextRequest){
     console.log("...");
 
     // Print contract address and tokenId for each NFT:
-    for (const nft of nftsForOwner.ownedNfts) {
+    for (const nft of nftsForOwner.ownedNfts) {     
+    console.log(nft)
     console.log("===");
     console.log("contract address:", nft.contract.address);
     console.log("token ID:", nft.tokenId);
     }
-
+    // console.log(finalResponse);
     return NextResponse.json(nftsForOwner, {
         status: 200
     })

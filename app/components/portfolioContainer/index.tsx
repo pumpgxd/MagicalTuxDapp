@@ -21,8 +21,9 @@ const PortfolioContainer = () => {
                 body: JSON.stringify(requestBody)
             })
             const json = await response.json();
-            console.log(json.ownedNfts)
-            setUserNfts(json.ownedNfts);
+            const finalResponse = json.ownedNfts.filter(i => i.raw.metadata.image!=null);
+            console.log(finalResponse)
+            setUserNfts(finalResponse);
             
         }
         if (address && chainId ){
@@ -39,7 +40,8 @@ const PortfolioContainer = () => {
             </div> */}
             {userNfts  && 
             <div className="pt-10 flex m-auto flex-wrap items-center justify-center z-0">
-            {userNfts.filter(i => i.raw.metadata.image != null).map((nft) => (
+            {userNfts.map((nft) => (
+                    
                     <div key={nft.tokenId} className="mx-4 my-4 flex h-80 w-64 cursor-pointer flex-col rounded-lg border border-white items-center justify-center gap-5 bg-transparent transition-all duration-300 hover:scale-105 hover:z-0">
                         <ThirdwebNftMedia
                         height="100%"
@@ -49,7 +51,7 @@ const PortfolioContainer = () => {
                         />
                  
                     <h1 className='pb-5'>{nft.raw.metadata.name}</h1>
-                   
+    
                 </div>
              
             ))}
