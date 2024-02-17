@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const Token = () => {
     return (  
-    <div className="m-auto flex flex-col items-center justify-between grid sm:grid-cols-3 gap-19 tracking-wide pt-10">
+    <div className="m-auto flex flex-col items-center justify-between grid sm:grid-cols-3 gap-19 tracking-wide pt-10 z-1">
         <TextTrans time="1000" triggerNext={()=>null} text={
         <div className="text-center text-white text-pretty">
         <p className="text-2xl underline">TOKENOMICS</p>

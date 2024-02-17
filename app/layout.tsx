@@ -5,6 +5,7 @@ import "./globals.css";
 import Navbar from "./components/navigation/navbar";
 import FooterBar from "./components/navigation/footer";
 import Providers from "./_providers/providers";
+import ParticlesBackground from "./components/particlesBackground";
 
 const ubuntu= Lato({ subsets: ["latin"], weight: "700" });
 
@@ -24,6 +25,7 @@ export default function RootLayout({
         <div className="flex flex-col h-screen">
           <Providers>
               <Navbar/>
+              <ParticlesBackground/>
               <Toaster position="bottom-right"
                 toastOptions={{
                   style: {

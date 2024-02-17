@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const Card: FunctionComponent<{ label: string, src: string, rounded: string, width: number}> = (props) => {
     return (
-            <div className="h-60 shrink m-auto text-center items-center flex hover:scale-105 hover:text-[#FF0420] flex-col">
+            <div className="h-60 shrink m-auto text-center items-center mt-5 gap-5 flex hover:scale-105 hover:text-[#FF0420] flex-col">
             <Image        
               className={`m-auto rounded-${props.rounded}`}
               src={props.src}

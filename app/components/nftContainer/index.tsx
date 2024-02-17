@@ -115,7 +115,7 @@ const NftContainer = () => {
 
 
     return (
-        <div className="m-auto flex flex-row items-start justify-between grid grid-cols-2 rounded-2xl gap-14">
+        <div className="m-auto flex flex-row items-start justify-between grid grid-cols-2 rounded-2xl gap-14 z-1">
          <TextTrans time="1000" triggerNext={() => null} text={   
         <div className="flex text-white flex-col items-center rounded-lg">
         <div className="p-4">
