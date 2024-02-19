@@ -2,7 +2,7 @@ import React from "react"
 import { useState, useRef, useEffect } from 'react';
 import NextImage from "next/image";
 import TextTrans from "../fontTrans";
-import { useAddress, useContract, useTotalCount, Web3Button, useMintNFT, darkTheme, MediaRenderer, useNFT, ThirdwebNftMedia, useMetadata, useNFTs } from "@thirdweb-dev/react";
+import { useAddress, useContract, useTotalCount, Web3Button, useMintNFT, darkTheme, MediaRenderer, useNFT, ThirdwebNftMedia, useMetadata, useNFTs, useTokenBalance, useChainId, ContractRoles } from "@thirdweb-dev/react";
 import { toast } from 'react-hot-toast';
 import { chakra } from "@chakra-ui/react";
 const backgrounds = [
@@ -24,15 +24,14 @@ const NftTrait = chakra(NextImage, {
 
 
 const NftContainer = () => {
-    const contractAddress = process.env.NEXT_PUBLIC_NFT_GEN_ADDY;
+    const collectionAddress = process.env.NEXT_PUBLIC_NFT_GEN_ADDY;
     const address  = useAddress();
-    const { contract } = useContract(contractAddress, 'nft-collection');
-    // const { data: nft } = useNFT(contract, 27);
-    // const { mutate: mintNft, isLoading, error} = useMintNFT(contract)
+    const { contract } = useContract(collectionAddress, 'nft-collection');
     const [background, setBackground] = useState<string>('/bgTwo.png');
     const [cat, setCat] = useState<string>('/catThree.png');
     const [isMinting, setIsMinting] = useState(false);
     const canvasRef = useRef<HTMLCanvasElement>(null)
+    const chainId = useChainId();
     // const [mintingText, setMintingText] = useState<string>('MINTING');
 
     useEffect(() => {
@@ -76,27 +75,37 @@ const NftContainer = () => {
         const name = "TuxMember" 
         const formData = new FormData();
         formData.append('image', blob, 'tuxMemberNft.png');
-
+        formData.append('address', address)
+        formData.append('collectionAddy', collectionAddress)
+        console.log(formData);
+        console.log(chainId);
         try {
-            const uploadResponse = await fetch('/api/upload', {
+            const uploadResponse = await fetch('/api/signUpload', {
                 method: "POST",
                 body: formData
-            })
+            }
+            )
 
 
         const metadata = await uploadResponse.json();
-        const tx = await contract?.mintTo(address || "", metadata)
-       
-        const nft = await tx?.data();  
+        if (metadata.error != null){
+            toast.dismiss(loadingToast);
+            handleErrorMint(metadata.error);
+            return;
+        }
+        console.log(metadata)
+        // const tx = await contract?.mintTo(address || "", metadata)
+        const tx = await contract?.signature.mint(metadata);
+        const receipt = tx.receipt;  
         console.log(tx?.receipt)  
-        console.log(nft);
+        console.log(tx);
         toast.dismiss(loadingToast);
         handleSuccessMint();
-        return nft;     
+        return tx;     
 
         } catch (e) {
             toast.dismiss(loadingToast);
-            handleErrorMint()
+            handleErrorMint("Error ocurred trying to mint NFT")
             console.error("Error ocurred trying to mint NFT:", e)
             return;
         }
@@ -108,8 +117,8 @@ const NftContainer = () => {
       }
 
 
-      const handleErrorMint = () => {
-        toast.error("Transaction Rejected")
+      const handleErrorMint = (message: string) => {
+        toast.error(message)
         setIsMinting(false);
       }
 
@@ -159,7 +168,7 @@ const NftContainer = () => {
         <div className="p-8 flex items-center  w-auto">
             <Web3Button
             className="hover:bg-white hover:text-black"
-            contractAddress={contractAddress || ""}
+            contractAddress={collectionAddress || ""}
             action={async () => await uploadAndMint()
             }
             isDisabled={isMinting}
