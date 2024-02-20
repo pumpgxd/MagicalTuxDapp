@@ -76,11 +76,6 @@ const Navbar = () => {
                 </MenuList>
                 </Menu>
               </li>
-              {/* <li>
-                <Link href="/vision">
-                <NavButton text="VISION"/>
-                </Link>
-              </li> */}
             </ul>
             <WalletButton/>
             </div>
