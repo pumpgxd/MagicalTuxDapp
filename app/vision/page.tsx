@@ -5,7 +5,7 @@ import TextTrans from "../components/fontTrans";
 const Vision = () => {
     return (
         <div className="m-auto flex flex-col items-center justify-between grid sm:grid-cols-2 gap-20">
-        <TextTrans time="1000" triggerNext={()=>null} text={
+        <TextTrans time="1000"  text={
         <div className="max-w-sm text-xl text-center text-white text-pretty">
         <p>
         Magical Tux is committed to building a vibrant and inclusive community.
