@@ -125,7 +125,7 @@ const NftContainer = () => {
 
     return (
         <div className="m-auto flex flex-row items-start justify-between grid grid-cols-2 rounded-2xl gap-14 z-1">
-         <TextTrans time="1000" triggerNext={() => null} text={   
+         <TextTrans time="1000" text={   
         <div className="flex text-white flex-col items-center rounded-lg">
         <div className="p-4">
             <h3 className="pb-2">Background: </h3>
@@ -180,19 +180,18 @@ const NftContainer = () => {
                   modalBg: "#000000",  
                   connectedButtonBg: "#000000",
                   primaryText: "#ffffff",
-                  borderColor: "#FF0420",
                   primaryButtonBg: isMinting ? "#000000" : "#FF0420",
                   primaryButtonText: "#ffffff",
                   secondaryButtonText: "#ffffff",
             }})}>
-               { !isMinting ? "MINT NFT" :
+               { !isMinting ? "MINT | .01 ETH" :
                     "MINTING..."
                  }  
             </Web3Button>
         </div>
         </div>
         }/>
-        <TextTrans time="1000" triggerNext={() => null} text={
+        <TextTrans time="1000" text={
         <div>
             <canvas ref={canvasRef} width="400" height="400" className="rounded-xl border-2 border-[#ffffff]" />
         </div>

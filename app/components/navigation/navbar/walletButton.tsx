@@ -3,7 +3,7 @@ import { ConnectWallet, darkTheme } from '@thirdweb-dev/react';
 import React from 'react';
 const WalletButton = () => {
     return (
-        <div className='hidden md:flex w-20'>
+        <div className='hidden md:flex'>
         <ConnectWallet btnTitle="CONNECT" className="walletButton"
         theme={darkTheme({
             colors: {

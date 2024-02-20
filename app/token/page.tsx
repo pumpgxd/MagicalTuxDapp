@@ -7,7 +7,7 @@ import Link from "next/link";
 const Token = () => {
     return (  
     <div className="m-auto flex flex-col items-center justify-between grid sm:grid-cols-3 gap-19 tracking-wide pt-10 z-1">
-        <TextTrans time="1000" triggerNext={()=>null} text={
+        <TextTrans time="1000" text={
         <div className="text-center text-white text-pretty">
         <p className="text-2xl underline">TOKENOMICS</p>
             <br/>
@@ -23,7 +23,7 @@ const Token = () => {
         </div>
         }></TextTrans>
         <ImageContent src="/tokenPageImage.jpeg" borderRadius="rounded-full"/>
-        <TextTrans time="1000" triggerNext={()=>null} text={
+        <TextTrans time="1000"  text={
         <div className="text-center text-white text-pretty">    
             <p className="text-2xl underline">HOW TO BUY $TUX</p>
             <br/>
@@ -39,7 +39,7 @@ const Token = () => {
             <p className="text-sm">Enter official CA on your favorite</p>
             <p className="text-sm">DEX and swap</p>
             <br/>
-            <Link href="/bridge" className="hover:text-[#FF0420]">Or Bridge & Swap with Magical Tux & LI.FI!</Link>
+            <Link href="/bridge" className="text-[#FF0420] hover:text-white">Or Bridge & Swap with Magical Tux & LI.FI!</Link>
         </div>
         }></TextTrans>
     </div>
