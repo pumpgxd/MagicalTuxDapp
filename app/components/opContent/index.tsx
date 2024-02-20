@@ -8,8 +8,8 @@ const OpContent = () => {
 
 return (
     <TextTrans time="1000"  text={
-    <div className="m-auto pb-36 items-center text-white flex grid sm:grid-rows-2 z-0">
-        <div  className="text-center items-center flex grid sm:grid-rows-2 gap-5 px-36 py-10">
+    <div className="m-auto pb-24 items-center text-white flex grid sm:grid-rows-2 z-0">
+        <div  className="text-center items-center flex grid sm:grid-rows-2 gap-5 px-36">
             <p className="text-2xl">WELCOME TO THE SUPERCHAIN</p>
             <div className="m-auto">
             <Image       

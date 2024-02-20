@@ -15,14 +15,14 @@ const BridgeWidge = () => {
     const provider = signer?.provider;
 
     return (
-        <div className="items-center pt-10 pb-20 flex">
+        <div className="items-center  flex">
         <div className="m-auto h-[580px]">
         { provider ?
         <TextTrans time="1000" text={ 
         <LiFiWidgetNext/>
         }/>
         : <TextTrans time="1000" text={
-          <div className="m-auto my-72 flex flex-col text-end items-center gap-y-6">
+          <div className="m-auto my-64 flex flex-col text-end items-center gap-y-6">
           
             <h1 className="text-center text-xl">Connect wallet to get started!</h1>
             <WalletButton/>
