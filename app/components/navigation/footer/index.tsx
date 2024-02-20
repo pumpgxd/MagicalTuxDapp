@@ -6,14 +6,14 @@ import React from "react"
 const FooterBar = () => {
     return (
         <div className="w-full h-20 bottom-0 bg-[#000000]">
-          <div className="container h-16 mx-auto px-8 h-full w-80">
+          <div className="container h-16 mx-auto px-8 h-full w-80 text-4xl ">
         <div className="flex py-4 text-[#FF0420] items-center text-center m-auto px-4 justify-between">
         <a className=""
           href="https://t.me/magicaltuxportal"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FaTelegram fontSize={45} className="hover:text-gray-100"
+          <FaTelegram className="hover:text-gray-100"
           />
         </a>
 
@@ -23,7 +23,7 @@ const FooterBar = () => {
           rel="noopener noreferrer"
         >
           
-          <FaSquareXTwitter fontSize={45} className="hover:text-gray-100 m-auto"
+          <FaSquareXTwitter className="hover:text-gray-100 m-auto"
           />
         </a>
 
@@ -32,7 +32,7 @@ const FooterBar = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FaChartBar fontSize={45} className="hover:text-gray-100 m-auto"/>
+          <FaChartBar className="hover:text-gray-100 m-auto"/>
 
         </a>
 

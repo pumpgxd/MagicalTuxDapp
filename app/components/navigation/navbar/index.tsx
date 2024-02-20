@@ -10,10 +10,10 @@ const Navbar = () => {
       <>
         <div className="w-full flex h-20 bg-[#FF0420] sticky top-0 z-10">
           <div className="container mx-auto px-4 h-full">
-            <div className="flex justify-between items-center h-full text-[#FFFFFF]">
+            <div className="flex min-w-[70px] justify-between items-center h-full text-[#FFFFFF]">
             <Link href="/">
             <Image
-              className="hover:dark:invert"            
+              className="hover:dark:invert min-w-[70px]"            
               src="/main-cat.svg"
               alt="Tux cat"
               width={70}
@@ -41,20 +41,27 @@ const Navbar = () => {
                     <MenuItem as={Link} href="/vision" bg="black" _hover={{bg: "gray.800"}}>
                       Vision
                     </MenuItem>
+                    <MenuItem as={Link} href="/optimism" bg="black" _hover={{bg: "gray.800"}}>
+                      Optimism
+                    </MenuItem>
                 </MenuList>
                 </Menu>
               </li>
               <li>
-              <Link href="/optimism">
-                <NavButton text="OP"/>
-              </Link>
-              </li>
-              <li className="hidden md:flex">
               <Link href="/bridge">
-                <NavButton text="BRIDGE/SWAP"/>
+                <Button
+                    px={2}
+                    py={2}
+                    fontSize={18}
+                    textColor="white"
+                    _active={{bg: 'black', textColor: 'white'}}
+                    _hover={{ bg: 'black', textColor: "white" }}
+                    bg="#FF0420">
+                  BRIDGE/SWAP
+                </Button>
               </Link>
               </li>
-              <li className="hidden md:flex">
+              <li>
                 <Menu>
                   <MenuButton as={Button}
                     px={2}
@@ -77,7 +84,9 @@ const Navbar = () => {
                 </Menu>
               </li>
             </ul>
-            <WalletButton/>
+            <div className="hidden md:flex">
+            <WalletButton />
+            </div>
             </div>
                 
           </div>

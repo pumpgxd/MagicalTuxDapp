@@ -4,9 +4,9 @@ import ImageContent from "../components/imageContent";
 import TextTrans from "../components/fontTrans";
 const Vision = () => {
     return (
-        <div className="m-auto flex flex-col items-center justify-between grid sm:grid-cols-2 gap-20">
+        <div className="m-auto flex flex-col items-center text-center justify-between grid sm:grid-cols-2 gap-20 py-8">
         <TextTrans time="1000"  text={
-        <div className="max-w-sm text-xl text-center text-white text-pretty">
+        <div className="max-w-sm m-auto text-xl text-center flex flex-col items-center text-white text-pretty">
         <p>
         Magical Tux is committed to building a vibrant and inclusive community.
         </p>
