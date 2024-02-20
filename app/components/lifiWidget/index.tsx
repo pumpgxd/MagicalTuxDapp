@@ -69,7 +69,7 @@ export const Widget = () => {
             ]
           }
         };
-      }, [signer, wallet?.connect, wallet?.disconnect, chainId, wallet]);
+      }, [signer, wallet]);
    
 
 
