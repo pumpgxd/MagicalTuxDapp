@@ -73,17 +73,9 @@ const Navbar = () => {
                     <MenuItem as={Link} href="/nftPortfolio" bg="black" _hover={{bg: "gray.800"}}>
                       Portfolio
                     </MenuItem>
-                    <MenuItem as={Link} href="/marketplace" bg="black" _hover={{bg: "gray.800"}}>
-                      Marketplace
-                    </MenuItem>
                 </MenuList>
                 </Menu>
               </li>
-              {/* <li>
-                <Link href="/vision">
-                <NavButton text="VISION"/>
-                </Link>
-              </li> */}
             </ul>
             <WalletButton/>
             </div>

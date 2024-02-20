@@ -33,7 +33,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "app/api/route.ts"
+    "app/api/signUpload/route.ts",
+    "app/api/getNfts/route.ts"
   ],
   "exclude": [
     "node_modules"
