@@ -8,7 +8,7 @@ const Token = () => {
     return (  
     <div className="m-auto flex flex-col items-center justify-between grid sm:grid-cols-3 gap-19 tracking-wide pt-10 z-1">
         <TextTrans time="1000" text={
-        <div className="text-center text-white text-pretty">
+        <div className="text-center text-white text-pretty py-4">
         <p className="text-2xl underline">TOKENOMICS</p>
             <br/>
             <p>Total Supply: 1,000,000,000</p>
@@ -24,7 +24,7 @@ const Token = () => {
         }></TextTrans>
         <ImageContent src="/tokenPageImage.jpeg" borderRadius="rounded-full"/>
         <TextTrans time="1000"  text={
-        <div className="text-center text-white text-pretty">    
+        <div className="text-center text-white text-pretty py-4">    
             <p className="text-2xl underline">HOW TO BUY $TUX</p>
             <br/>
             <p className="text-lg">1) Bridge to Optimism Network</p>
