@@ -15,7 +15,7 @@ const BridgeWidge = () => {
     const provider = signer?.provider;
 
     return (
-        <div className="items-center  flex">
+        <div className="items-center flex">
         <div className="m-auto h-[580px]">
         { provider ?
         <TextTrans time="1000" text={ 

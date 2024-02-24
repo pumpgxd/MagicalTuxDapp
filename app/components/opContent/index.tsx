@@ -26,15 +26,15 @@ return (
                 <a  href="https://app.optimism.io/superchain"
                     target="_blank"
                     rel="noopener noreferrer">
-                    <Card label={"GET STARTED WITH OPTIMISM"} src="/OP-Logo.svg" width={180} rounded="none"/>
+                    <Card label={"GET STARTED WITH OPTIMISM"} src="/OP-Logo.svg" shadowColor="white/50" shadowSize="md"  width={180} rounded="full"/>
                 </a>
                 <a  href="https://app.optimism.io/bridge/deposit"
                     target="_blank"
                     rel="noopener noreferrer">
-                <Card label={"BRIDGE ETH TO OPTIMISM"} src="/optimism-city.png" width={270} rounded="none"/>
+                <Card label={"BRIDGE ETH TO OPTIMISM"} src="/optimism-city.png" shadowColor="white" shadowSize="xx" width={270} rounded="none"/>
                 </a>
                 <a href="https://www.optimism.io/apps/nfts">
-                <Card label={"OPTIMISM AND NFTS"} src="/tuxNft.jpeg" width={190} rounded="full"/>
+                <Card label={"OPTIMISM AND NFTS"} src="/tuxNft.jpeg" width={190} shadowColor="[#FF0420]/50" shadowSize="md" rounded="full"/>
                 </a>
                 </div>
         </div>

@@ -8,18 +8,20 @@ import { Button } from "@chakra-ui/react";
 const Navbar = () => {
     return (
       <>
-        <div className="w-full flex h-20 bg-[#FF0420] sticky top-0 z-10">
-          <div className="container mx-auto px-4 h-full">
+        <div className="w-full flex h-20 top-0 z-10">
+          <div className="container pt-4 mx-auto h-full">
             <div className="flex min-w-[70px] justify-between items-center h-full text-[#FFFFFF]">
             <Link href="/">
+              <div className="lg:w-[150px]">
             <Image
-              className="hover:dark:invert min-w-[70px]"            
+              className="hover:shadow-sm hover:shadow-white/20 hover:scale-90 min-w-[70px] bg-[#ff0420] rounded-full"            
               src="/main-cat.svg"
               alt="Tux cat"
               width={70}
               height={8}
               priority
             />
+            </div>
             </Link>
             <ul className="gap-x-12 flex text-white text-lg">
               <li>
@@ -29,9 +31,9 @@ const Navbar = () => {
                     py={2}
                     fontSize={18}
                     textColor="white"
-                    _active={{bg: 'black', textColor: 'white'}}
-                    _hover={{ bg: 'black', textColor: "white" }}
-                    bg="#FF0420">
+                    _active={{bg: 'black', textColor: '#ff0420'}}
+                    _hover={{ bg: 'black', textColor: "#ff0420" }}
+                    bg="black">
                     $TUX
                   </MenuButton>
                   <MenuList bg="black">
@@ -54,9 +56,9 @@ const Navbar = () => {
                     py={2}
                     fontSize={18}
                     textColor="white"
-                    _active={{bg: 'black', textColor: 'white'}}
-                    _hover={{ bg: 'black', textColor: "white" }}
-                    bg="#FF0420">
+                    _active={{bg: 'black', textColor: '#ff0420'}}
+                    _hover={{ bg: 'black', textColor: '#ff0420'}}
+                    bg="black">
                   BRIDGE/SWAP
                 </Button>
               </Link>
@@ -68,9 +70,9 @@ const Navbar = () => {
                     py={2}
                     fontSize={18}
                     textColor="white"
-                    _active={{bg: 'black', textColor: 'white'}}
-                    _hover={{ bg: 'black', textColor: "white" }}
-                    bg="#FF0420">
+                    _active={{bg: 'black', textColor: '#ff0420'}}
+                    _hover={{ bg: 'black', textColor: '#ff0420'}}
+                    bg="black">
                     NFTs
                   </MenuButton>
                   <MenuList bg="black">
