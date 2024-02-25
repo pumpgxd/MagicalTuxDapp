@@ -124,9 +124,10 @@ const NftContainer = () => {
 
 
     return (
-        <div className="m-auto flex flex-row items-start justify-between grid grid-cols-2 rounded-2xl gap-14 z-1">
+        <div className="h-svh z-1">
+        <div className="m-auto pt-36 flex flex-row items-start justify-between grid grid-cols-2 gap-14">
          <TextTrans time="1000" text={   
-        <div className="flex text-white flex-col items-center rounded-lg">
+        <div className="m-auto flex text-white flex-col items-center rounded-lg py-auto">
         <div className="p-4">
             <h3 className="pb-2">Background: </h3>
             <div className="flex flex-row items-start space-x-2">
@@ -196,6 +197,7 @@ const NftContainer = () => {
             <canvas ref={canvasRef} width="400" height="400" className="rounded-xl border-2 border-[#ffffff]" />
         </div>
         }/>
+        </div>
     </div>
    
 

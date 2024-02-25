@@ -24,8 +24,8 @@ const ImageContent: FunctionComponent<{ src: string, borderRadius: string}> = (p
             className={props.borderRadius}
              src={props.src}
              alt="Tux cat"
-             width={500}
-             height={500}
+             width={450}
+             height={450}
              priority
           />
         </div>

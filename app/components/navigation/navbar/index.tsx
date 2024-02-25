@@ -4,7 +4,7 @@ import WalletButton from "./walletButton";
 import Link from "next/link";
 import NavButton from "../../button";
 import {Menu , MenuButton, MenuList, MenuItem }from "@chakra-ui/react";
-import { Button } from "@chakra-ui/react";
+import { Button, Box } from "@chakra-ui/react";
 const Navbar = () => {
     return (
       <>
@@ -34,16 +34,16 @@ const Navbar = () => {
                     _active={{bg: 'black', textColor: '#ff0420'}}
                     _hover={{ bg: 'black', textColor: "#ff0420" }}
                     bg="black">
-                    $TUX
+                    MAGICAL TUX
                   </MenuButton>
-                  <MenuList bg="black">
-                    <MenuItem as={Link} href="/token" bg="black" _hover={{bg: "gray.800"}}>
+                  <MenuList sx={{minW: "0px", w: 'fit-content', borderColor: "#ff0420", opacacity: "20%", }} border="1px" as={Box} borderStyle="solid"  borderRadius="8%" bg="black">
+                    <MenuItem as={Link} href="/" bg="black" w="100%" _hover={{bg: "gray.800"}}>
                       Token
                     </MenuItem>
-                    <MenuItem as={Link} href="/vision" bg="black" _hover={{bg: "gray.800"}}>
+                    <MenuItem as={Link} href="/vision" bg="black" w="100%" _hover={{bg: "gray.800"}}>
                       Vision
                     </MenuItem>
-                    <MenuItem as={Link} href="/optimism" bg="black" _hover={{bg: "gray.800"}}>
+                    <MenuItem as={Link} href="/optimism" bg="black" w="100%" _hover={{bg: "gray.800"}}>
                       Optimism
                     </MenuItem>
                 </MenuList>
@@ -75,11 +75,11 @@ const Navbar = () => {
                     bg="black">
                     NFTs
                   </MenuButton>
-                  <MenuList bg="black">
-                    <MenuItem as={Link} href="/nfts" bg="black" _hover={{bg: "gray.800"}}>
+                  <MenuList sx={{minW: "0px", w: 'fit-content', borderColor: "#ff0420", opacacity: "20%", }} border="1px" as={Box} borderStyle="solid"  borderRadius="8%" bg="black">
+                    <MenuItem as={Link} href="/nfts" w="100%" bg="black" _hover={{bg: "gray.800"}}>
                       Mint
                     </MenuItem>
-                    <MenuItem as={Link} href="/nftPortfolio" bg="black" _hover={{bg: "gray.800"}}>
+                    <MenuItem as={Link} href="/nftPortfolio" w="100%" bg="black" _hover={{bg: "gray.800"}}>
                       Portfolio
                     </MenuItem>
                 </MenuList>
