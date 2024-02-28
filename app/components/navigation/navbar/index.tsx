@@ -2,14 +2,13 @@
 import Image from "next/image";
 import WalletButton from "./walletButton";
 import Link from "next/link";
-import NavButton from "../../button";
 import {Menu , MenuButton, MenuList, MenuItem }from "@chakra-ui/react";
 import { Button, Box } from "@chakra-ui/react";
 const Navbar = () => {
     return (
       <>
-        <div className="w-full flex h-20 top-0 z-10">
-          <div className="container pt-4 mx-auto h-full">
+        <div className="w-full flex h-20 top-0 z-50 sticky bg-black">
+          <div className="container mx-auto h-full">
             <div className="flex min-w-[70px] justify-between items-center h-full text-[#FFFFFF]">
             <Link href="/">
               <div className="lg:w-[150px]">
@@ -18,7 +17,7 @@ const Navbar = () => {
               src="/main-cat.svg"
               alt="Tux cat"
               width={70}
-              height={8}
+              height={10}
               priority
             />
             </div>
@@ -37,10 +36,10 @@ const Navbar = () => {
                     MAGICAL TUX
                   </MenuButton>
                   <MenuList sx={{minW: "0px", w: 'fit-content', borderColor: "#ff0420", opacacity: "20%", }} border="1px" as={Box} borderStyle="solid"  borderRadius="8%" bg="black">
-                    <MenuItem as={Link} href="/" bg="black" w="100%" _hover={{bg: "gray.800"}}>
+                    <MenuItem as={Link} href="/#token" bg="black" w="100%" _hover={{bg: "gray.800"}}>
                       Token
                     </MenuItem>
-                    <MenuItem as={Link} href="/vision" bg="black" w="100%" _hover={{bg: "gray.800"}}>
+                    <MenuItem as={Link} href="/#vision" bg="black" w="100%" _hover={{bg: "gray.800"}}>
                       Vision
                     </MenuItem>
                     <MenuItem as={Link} href="/optimism" bg="black" w="100%" _hover={{bg: "gray.800"}}>

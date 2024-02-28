@@ -6,7 +6,7 @@ import Image from 'next/image'
 
 const FooterBar = () => {
     return (
-        <div className="w-full sticky z-50 bg-black h-20 bottom-0 mx-auto">
+        <div className="w-full sticky z-50 bg-black h-16 bottom-0 mx-auto">
           <div className="flex max-md:flex-col items-center justify-between max-md:px-20 h-full w-4/5 m-auto text-3xl ">
            <div className="flex flex-row items-start gap-8 pb-2 px-2 text-[#FF0420] justify-between">
               <a className=""

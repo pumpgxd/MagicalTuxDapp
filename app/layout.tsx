@@ -14,16 +14,17 @@ export const metadata: Metadata = {
   description: "OP's #1 Cat",
 };
 
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth" >
       <body className={ubuntu.className}>
+      <Providers>
         <div className="flex flex-col h-full justify-between">
-          <Providers>
               <Navbar/>
               <ParticlesBackground/>
               <Toaster position="bottom-right"
@@ -40,8 +41,8 @@ export default function RootLayout({
                 }}/>
                 {children}
               <FooterBar/>
-        </Providers>
         </div>
+        </Providers>
         </body>
     </html>
   );

@@ -29,12 +29,13 @@ type ProviderType = {
 
 const Providers = ({children}: ProviderType) => {
   return (
-    
-    <TWProvider>
-      <ChakraProvider theme={theme}>
+      <TWProvider>
+        <ChakraProvider theme={theme}>
+
         {children}
-      </ChakraProvider>
+        </ChakraProvider>
     </TWProvider>
+
   )
 }
 
