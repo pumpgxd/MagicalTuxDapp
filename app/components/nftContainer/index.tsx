@@ -5,17 +5,10 @@ import TextTrans from "../fontTrans";
 import { useAddress, useContract, useTotalCount, Web3Button, useMintNFT, darkTheme, MediaRenderer, useNFT, ThirdwebNftMedia, useMetadata, useNFTs, useTokenBalance, useChainId, ContractRoles } from "@thirdweb-dev/react";
 import { toast } from 'react-hot-toast';
 import { chakra } from "@chakra-ui/react";
-const backgrounds = [
-    '/bgOne.png',
-    '/bgTwo.png',
-    '/bgThree.png'
-]
+import { backgrounds, shadows, skins, eyes, clothes, outlines, mouths, hatsHair } from "@/app/constants/traitUrls";
+import Traits from '@/app/components/traits'
+import { global } from "styled-jsx/css";
 
-const cats = [
-    '/catOne.png',
-    '/catTwo.png',
-    '/catThree.png'
-]
 
 const NftTrait = chakra(NextImage, {
     baseStyle: { maxH: 120, maxW: 120 },
@@ -27,12 +20,20 @@ const NftContainer = () => {
     const collectionAddress = process.env.NEXT_PUBLIC_NFT_GEN_ADDY;
     const address  = useAddress();
     const { contract } = useContract(collectionAddress, 'nft-collection');
-    const [background, setBackground] = useState<string>('/bgTwo.png');
-    const [cat, setCat] = useState<string>('/catThree.png');
+    const [background, setBackground] = useState<string>(backgrounds[0]);
+    const [shadow, setShadow] = useState<string>(shadows[0]);
+    const [skin, setSkin] = useState<string>(skins[0]);
+    const [eye, setEye] = useState<string>(eyes[0]);
+    const [shirt, setShirt] = useState<string>(clothes[0])
+    const [outline, setOutline] = useState<string>(outlines[0])
+    const [mouth, setMouth] = useState<string>(mouths[0])
+    const [hatHair, setHatHair] = useState<string>(hatsHair[0])
     const [isMinting, setIsMinting] = useState(false);
     const canvasRef = useRef<HTMLCanvasElement>(null)
     const chainId = useChainId();
     // const [mintingText, setMintingText] = useState<string>('MINTING');
+
+
 
     useEffect(() => {
         if (!canvasRef.current) return;
@@ -40,24 +41,61 @@ const NftContainer = () => {
         const canvas = canvasRef.current;
         const ctx = canvas.getContext('2d');
 
-        if (background && cat && ctx){
+        if (background && skin && eye && shirt && ctx){
             const backgroundImage = new globalThis.Image();
             backgroundImage.onload = () =>  {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height)
 
-                const catImage = new globalThis.Image();
-                catImage.onload = () => {
-                    ctx.drawImage(catImage, 0, 0, canvas.width, canvas.height)
+                const shadowImage = new globalThis.Image();
+                shadowImage.onload = () => {
+                    ctx.drawImage(shadowImage, 0, 0, canvas.width, canvas.height)
+             
+                const skinImage = new globalThis.Image();
+                skinImage.onload = () => {
+                    ctx.drawImage(skinImage, 0, 0, canvas.width, canvas.height)
+                
+                
+                const eyeImage = new globalThis.Image();
+                eyeImage.onload = () => {
+                    ctx.drawImage(eyeImage, 0, 0, canvas.width, canvas.height)
+
+                    const shirtImage = new globalThis.Image();
+                    shirtImage.onload = () => {
+                        ctx.drawImage(shirtImage, 0, 0, canvas.width, canvas.height)
+
+                        const outlineImage = new globalThis.Image();
+                        outlineImage.onload = () => {
+                            ctx.drawImage(outlineImage, 0, 0, canvas.width, canvas.height)
+
+                            const mouthImage = new globalThis.Image();
+                            mouthImage.onload = () => {
+                                ctx.drawImage(mouthImage, 0, 0, canvas.width, canvas.height)
+
+                                const hatHairImage = new globalThis.Image();
+                                hatHairImage.onload = () => {
+                                    ctx.drawImage(hatHairImage, 0, 0, canvas.width, canvas.height)
+                                }
+                                hatHairImage.src = hatHair;
+                            }
+                            mouthImage.src = mouth;
+                        }
+                        outlineImage.src = outline;
+                    }
+                    shirtImage.src = shirt;
                 }
-            catImage.src = cat;
+                eyeImage.src = eye;
+            }
+            skinImage.src = skin;
+         }
+        shadowImage.src = shadow;
         }
         backgroundImage.src = background;
         }
         
         canvas.toBlob
     }, 
-    [background, cat])
+    [background, skin, eye, shirt, mouth, hatHair])
 
     const uploadAndMint = async () => {
         const canvas = canvasRef.current;
@@ -124,49 +162,25 @@ const NftContainer = () => {
 
 
     return (
-        <div className="h-svh z-1">
-        <div className="m-auto pt-36 flex flex-row items-start justify-between grid grid-cols-2 gap-14">
+        <div className="z-1 w-full pt-5">
+        <div className="w-5/6 m-auto"> 
+        <div className="flex w-full flex-row items-start justify-between">
          <TextTrans time="1000" text={   
-        <div className="m-auto flex text-white flex-col items-center rounded-lg py-auto">
-        <div className="p-4">
-            <h3 className="pb-2">Background: </h3>
-            <div className="flex flex-row items-start space-x-2">
-            {backgrounds.map((bg) => (
-            <NftTrait
-                className="rounded-xl cursor-pointer hover:scale-105"
-                key={bg}
-                alt={bg}
-                src={bg}
-                borderWidth={background === bg ? 2 : 1}
-                borderStyle="solid"
-                borderColor={background === bg ? '#194db5' : "white"}
-                onClick={() => setBackground(bg)}
-                width={100}
-                height={100}
-            />)
-            )}
-            </div>
+        <div className="flex text-white flex-col items-start rounded-lg py-auto">
+         <div className ="flex flex-col w-3/4 justify-between">   
+            <Traits label="Background" activeTrait={background} setTrait={setBackground} traitList={backgrounds}/> 
+            <Traits label="Skin" activeTrait={skin} setTrait={setSkin} traitList={skins}/>  
+            <Traits label="Eyes" activeTrait={eye} setTrait={setEye} traitList={eyes}/> 
+            <Traits label="Clothing" activeTrait={shirt} setTrait={setShirt} traitList={clothes}/> 
+            <Traits label="Mouth" activeTrait={mouth} setTrait={setMouth} traitList={mouths}/>
+            <Traits label="Hat/Hair" activeTrait={hatHair} setTrait={setHatHair} traitList={hatsHair}/>
         </div>
-         <div className="p-4">
-            <h3 className="pb-2">Cat:</h3>    
-            <div className="flex flex-row items-start space-x-2">
-            {cats.map((c) => (
-            <NftTrait
-                borderWidth={cat === c ? 2 : 1}
-                borderStyle="solid"
-                borderColor={cat === c ? '#194db5' : "white"}
-                className="bg-slate-800 rounded-xl cursor-pointer hover:scale-105"
-                key={c}
-                alt={c}
-                src={c}
-                onClick={() => setCat(c)}
-                width={100}
-                height={100}
-            />)
-            )}
-            </div>
-        </div>   
-        <div className="p-8 flex items-center  w-auto">
+        </div>
+        }/>
+        <TextTrans time="1000" text={
+        <div className="flex flex-col items-center w-5/6">
+            <canvas ref={canvasRef} width="600" height="600" className="rounded-xl border-2 border-[#ffffff]" />
+            <div className="p-8 flex items-center w-auto">
             <Web3Button
             className="hover:bg-white hover:text-black"
             contractAddress={collectionAddress || ""}
@@ -192,11 +206,7 @@ const NftContainer = () => {
         </div>
         </div>
         }/>
-        <TextTrans time="1000" text={
-        <div>
-            <canvas ref={canvasRef} width="400" height="400" className="rounded-xl border-2 border-[#ffffff]" />
         </div>
-        }/>
         </div>
     </div>
    

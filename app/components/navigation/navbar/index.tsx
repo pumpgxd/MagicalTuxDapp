@@ -4,6 +4,7 @@ import WalletButton from "./walletButton";
 import Link from "next/link";
 import {Menu , MenuButton, MenuList, MenuItem }from "@chakra-ui/react";
 import { Button, Box } from "@chakra-ui/react";
+
 const Navbar = () => {
     return (
       <>
