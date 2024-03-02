@@ -16,7 +16,6 @@ export default function Home() {
         </div>
         </div>
       <Token/>
-      <div id="hi"></div>
       <Vision/>
      </div>
   );

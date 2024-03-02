@@ -9,12 +9,11 @@ const NftTrait = chakra(NextImage, {
 
 
 
-const Traits: FunctionComponent<{label: string, traitList: Array<string>, activeTrait: string, setTrait: Dispatch<SetStateAction<string>>}> = (props) => {
+const Traits: FunctionComponent<{traitList: Array<string>, activeTrait: string, setTrait: Dispatch<SetStateAction<string>>}> = (props) => {
 
 
     return (
         <div>
-        <h3 className="pb-2 ml-1">{props.label}:</h3>    
         <div className="flex flex-row items-start flex-wrap">
         {props.traitList.map((t) => (
         <NftTrait

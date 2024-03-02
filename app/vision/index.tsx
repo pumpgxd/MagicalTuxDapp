@@ -4,15 +4,15 @@ import ImageContent from "../components/imageContent";
 import TextTrans from "../components/fontTrans";
 const Vision = () => {
     return (
-        <div id="vision" className="m-auto flex flex-col w-full h-screen">
+        <div id="vision" className="m-auto flex flex-col w-full h-svh">
             <div className="flex max-md:flex-col flex-row items-center text-center justify-between h-full">
-                <div className="w-1/2 h-full text-xl text-center flex flex-col items-center text-white text-pretty">
+                <div className="w-1/2 h-full max-md:hidden text-xl text-center flex flex-col items-center text-white text-pretty">
                     <div className="m-auto w-3/4 flex-col flex">
                         <p className="text-4xl pb-10">ROADMAP</p>   
                         <p>ROADMAPPP HEREEEEEE!!!!</p>
                     </div>
                 </div>
-                <div className="h-full w-1/2 max-md:w-full rounded-lg flex overflow-hidden">
+                <div className="h-full w-1/2 max-md:w-full rounded-lg shrink flex overflow-hidden">
                     <div className="flex flex-col items-center text-center m-auto h-5/6 py-6 justify-between">
                     <p className="text-3xl z-40 [text-shadow:_10px_10px_20px_rgb(0_0_0_/_70%)]">VISION</p>
                     <div>

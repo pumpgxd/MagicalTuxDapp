@@ -7,7 +7,14 @@ import { toast } from 'react-hot-toast';
 import { chakra } from "@chakra-ui/react";
 import { backgrounds, shadows, skins, eyes, clothes, outlines, mouths, hatsHair } from "@/app/constants/traitUrls";
 import Traits from '@/app/components/traits'
-import { global } from "styled-jsx/css";
+import {
+    Accordion,
+    AccordionItem,
+    AccordionButton,
+    AccordionPanel,
+    AccordionIcon,
+    Box
+  } from '@chakra-ui/react'
 
 
 const NftTrait = chakra(NextImage, {
@@ -167,13 +174,90 @@ const NftContainer = () => {
         <div className="flex w-full flex-row items-start justify-between">
          <TextTrans time="1000" text={   
         <div className="flex text-white flex-col items-start rounded-lg py-auto">
-         <div className ="flex flex-col w-3/4 justify-between">   
-            <Traits label="Background" activeTrait={background} setTrait={setBackground} traitList={backgrounds}/> 
-            <Traits label="Skin" activeTrait={skin} setTrait={setSkin} traitList={skins}/>  
-            <Traits label="Eyes" activeTrait={eye} setTrait={setEye} traitList={eyes}/> 
-            <Traits label="Clothing" activeTrait={shirt} setTrait={setShirt} traitList={clothes}/> 
-            <Traits label="Mouth" activeTrait={mouth} setTrait={setMouth} traitList={mouths}/>
-            <Traits label="Hat/Hair" activeTrait={hatHair} setTrait={setHatHair} traitList={hatsHair}/>
+         <div className ="flex flex-col w-3/4 pt-10 justify-between">
+         <Accordion defaultIndex={[0]}>
+            <AccordionItem>
+                <h2>
+                <AccordionButton _expanded={{color: '#FF0420' }}>
+                    <Box as="span" flex='1' textAlign='left'>
+                    Background
+                    </Box>
+                    <AccordionIcon />
+                </AccordionButton>
+                </h2>
+                <AccordionPanel pb={4}>
+                    <Traits  activeTrait={background} setTrait={setBackground} traitList={backgrounds}/> 
+                </AccordionPanel>
+            </AccordionItem>
+
+            <AccordionItem>
+                <h2>
+                <AccordionButton _expanded={{color: '#FF0420' }}>
+                    <Box as="span" flex='1' textAlign='left'>
+                    Skin
+                    </Box>
+                    <AccordionIcon />
+                </AccordionButton>
+                </h2>
+                <AccordionPanel pb={4}>
+                    <Traits activeTrait={skin} setTrait={setSkin} traitList={skins}/>  
+                </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+                <h2>
+                <AccordionButton _expanded={{color: '#FF0420' }}>
+                    <Box as="span" flex='1' textAlign='left'>
+                    Eyes
+                    </Box>
+                    <AccordionIcon />
+                </AccordionButton>
+                </h2>
+                <AccordionPanel pb={4}>
+                    <Traits activeTrait={eye} setTrait={setEye} traitList={eyes}/> 
+                </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+                <h2>
+                <AccordionButton _expanded={{color: '#FF0420' }}>
+                    <Box as="span" flex='1' textAlign='left'>
+                    Clothing
+                    </Box>
+                    <AccordionIcon />
+                </AccordionButton>
+                </h2>
+                <AccordionPanel pb={4}>
+                    <Traits  activeTrait={shirt} setTrait={setShirt} traitList={clothes}/> 
+                </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+                <h2>
+                <AccordionButton _expanded={{color: '#FF0420' }}>
+                    <Box as="span" flex='1' textAlign='left'>
+                     Mouth
+                    </Box>
+                    <AccordionIcon />
+                </AccordionButton>
+                </h2>
+                <AccordionPanel pb={4}>
+                    <Traits  activeTrait={mouth} setTrait={setMouth} traitList={mouths}/>
+                </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+                <h2>
+                <AccordionButton _expanded={{color: '#FF0420' }}>
+                    <Box as="span" flex='1' textAlign='left'>
+                     Hat/Hair
+                    </Box>
+                    <AccordionIcon />
+                </AccordionButton>
+                </h2>
+                <AccordionPanel pb={4}>
+                    <Traits activeTrait={hatHair} setTrait={setHatHair} traitList={hatsHair}/>
+                </AccordionPanel>
+            </AccordionItem>
+            
+            </Accordion>   
+            
         </div>
         </div>
         }/>
@@ -199,7 +283,7 @@ const NftContainer = () => {
                   primaryButtonText: "#ffffff",
                   secondaryButtonText: "#ffffff",
             }})}>
-               { !isMinting ? "MINT | .01 ETH" :
+               { !isMinting ? "MINT" :
                     "MINTING..."
                  }  
             </Web3Button>

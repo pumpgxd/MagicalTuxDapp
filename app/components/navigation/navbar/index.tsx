@@ -11,7 +11,7 @@ const Navbar = () => {
         <div className="w-full flex h-20 top-0 z-50 sticky bg-black">
           <div className="container mx-auto h-full">
             <div className="flex min-w-[70px] justify-between items-center h-full text-[#FFFFFF]">
-            <Link href="/">
+            <Link href="/#home">
               <div className="lg:w-[150px]">
             <Image
               className="hover:shadow-sm hover:shadow-white/20 hover:scale-90 min-w-[70px] bg-[#ff0420] rounded-full"            

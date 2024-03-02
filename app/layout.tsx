@@ -24,7 +24,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth" >
       <body className={ubuntu.className}>
       <Providers>
-        <div className="flex flex-col h-full justify-between">
+        <div id="home" className="flex flex-col h-full justify-between">
               <Navbar/>
               <ParticlesBackground/>
               <Toaster position="bottom-right"
