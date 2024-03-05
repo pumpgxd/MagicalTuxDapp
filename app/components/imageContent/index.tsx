@@ -21,12 +21,14 @@ const ImageContent: FunctionComponent<{ src: string, borderRadius: string}> = (p
         leaveTo="opacity-0">
     <div>
           <Image
-            className={props.borderRadius}
+            className={props.borderRadius + " w-full h-auto"}
              src={props.src}
              alt="Tux cat"
-             width={450}
-             height={450}
+             sizes="100vw"
+             height="0"
+             width="0"
              priority
+             
           />
         </div>
     </Transition> 

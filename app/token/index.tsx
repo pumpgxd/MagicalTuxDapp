@@ -16,7 +16,7 @@ import { motion } from 'framer-motion'
 // shadow-[0_0_0_1000px_rgba(255,4,32,1.0)]
 const Token = () => {
     return (  
-    <div id="token" className="w-full h-screen tracking-wide z-1 overflow-hidden">
+    <div id="token" className="w-full h-screen mt-20 tracking-wide z-1 overflow-hidden">
         <div className="w-5/6 h-full mt-20 m-auto">
             <div className="flex max-md:flex-col flex-row items-center text-center m-auto justify-between h-5/6 w-full">
                 <div className="w-1/2 m-auto max-md:w-full max-md:h-1/2">
