@@ -3,75 +3,82 @@ import React from "react"
 import ImageContent from "../components/imageContent";
 import TextTrans from "../components/fontTrans";
 import Link from "next/link";
-import {
-    List,
-    ListItem,
-    ListIcon,
-  } from '@chakra-ui/react'
-import { GiToken } from "react-icons/gi";
-import { FaFire } from "react-icons/fa";
-import { FaRegCheckCircle } from "react-icons/fa";
+import { Card, Text, Stack, Heading, Image, Box, Flex} from '@chakra-ui/react'
 import { motion } from 'framer-motion'
-// shadow-[0_35px_60px_15px_rgba(0,0,0,0.3)]
-// shadow-[0_0_0_1000px_rgba(255,4,32,1.0)]
+
 const Token = () => {
     return (  
-    <div id="token" className="w-full h-screen mt-20 tracking-wide z-1 overflow-hidden">
-        <div className="w-5/6 h-full mt-20 m-auto">
-            <div className="flex max-md:flex-col flex-row items-center text-center m-auto justify-between h-5/6 w-full">
-                <div className="w-1/2 m-auto max-md:w-full max-md:h-1/2">
+    <div id="buy" className="w-full min-h-screen mt-20 tracking-wide z-1 overflow-hidden">
+        <div className="w-3/4 h-full my-20 m-auto">
+            <div className="flex max-lg:flex-col flex-row items-center text-center m-auto gap-5 justify-between w-full">
+                <div className="w-1/2 m-auto rounded-lg max-lg:w-full max-lg:h-1/2">
                     <motion.div initial={{x: -200}}
                         whileInView={{x: 0}}
                         transition={{
                             ease: "easeInOut",
                             duration: .5
                         }}>
-                        <div className="flex flex-col text-pretty justify-evenly text-white bg-[#FF0420] items-center z-40 max-md:h-1/2 w-full py-6 max-md:w-full gap-10 rounded-lg">
-                            <p className="text-2xl [text-shadow:_10px_10px_20px_rgb(0_0_0_/_70%)]" >$TUX</p>
-                            <div className="z-40">
+                        <div className="flex border border-slate-700/50 rounded-lg bg-black flex-col text-pretty justify-evenly text-white items-center z-40 max-lg:h-1/2 w-full py-6 max-lg:w-full gap-10 rounded-lg">
+                            <div>
+                                <p className="text-2xl max-lg:text-lg [text-shadow:_10px_10px_20px_rgb(0_0_0_/_70%)]" >$TUX</p>
+                                <p className="text-xs text-[#FF0420] [text-shadow:_10px_10px_20px_rgb(0_0_0_/_70%)]" >0x17aabf6838a6303fc6e9c5a227dc1eb6d95c829a</p>
+                            </div>
+                            <div className="z-40 w-5/6 max-lg:w-1/2">
                                 <ImageContent src="/tokenPageImage.jpeg" borderRadius="rounded-full shadow-[0_35px_60px_15px_rgba(0,0,0,0.5)]"/>
                             </div>
-                            <p className="px-10 text-sm [text-shadow:_10px_10px_20px_rgb(0_0_0_/_90%)]">
-                            $TUX is a meme token. It has no intrinsic value or expectations of financial return. The Magical Tux team is not responsible for any losses or errors. Invest at your own risk. Magical Tux is not affiliated with Optimism.</p>
+                            <div>
+                            <p className="px-10 text-xs pt-4 [text-shadow:_10px_10px_20px_rgb(255_255_255_/_40%)]">
+                            $TUX is a meme token. It has no intrinsic value or expectations of financial return. Magical Tux is a cat in a tuxedo - invest at your own risk. Magical Tux is not affiliated with Optimism.</p>
+                            </div>
                         </div>
                     </motion.div>
                 </div>
-                <div className="w-1/2 m-auto max-md:w-full max-md:h-1/2">
+                <div className="w-1/2 m-auto max-lg:w-full max-lg:h-1/2">
                 <motion.div className="m-auto" initial={{x: 200}}
                         whileInView={{x: 0}}
                         transition={{
                             ease: "easeInOut",
                             duration: .5
                         }}>
-                    <div className="text-center flex items-center text-white h-full  max-md:w-full max-md:h-1/2 text-pretty">
-                    <List margin="auto" spacing={6}>
-                        <ListItem>
-                            <p className="text-2xl [text-shadow:_0_2px_25px_rgb(255_255_255_/_50%)]">TOKENOMICS</p>
-                        </ListItem>
-                        <ListItem>
-                            <ListIcon as={GiToken} color='yellow.500' />
-                            Total Supply: 1,000,000,000
-                        </ListItem>
-                        <ListItem>
-                            <ListIcon as={GiToken} color='yellow.500' />
-                                Circulating Supply: 1,000,000,000
-                        </ListItem>
-                        <ListItem>
-                            <ListIcon as={FaFire} color='red.500' />
-                            100% LP Burnt
-                        </ListItem>
-                        <ListItem>
-                            <ListIcon as={FaRegCheckCircle} color='green.500' />
-                            0% Buy/Sell Tax
-                        </ListItem>
-                        <ListItem>
-                            <ListIcon as={FaRegCheckCircle} color='green.500' />
-                            0% Team Tokens
-                        </ListItem>
-                        <ListItem>
-                            <Link href="/bridge" className="text-[#FF0420] pt-10 hover:text-white">Bridge & Swap with Magical Tux & LI.FI!</Link>
-                        </ListItem>
-                    </List>
+                    <div className="text-center flex flex-col items-center text-center text-white h-full w-full justify-evenly gap-5 max-lg:w-full max-lg:h-1/2 text-pretty">
+                            <Card className="w-2/3" shadow="sm 0px" textAlign="center" align="center" minW="0" bg="black" border="1px" gap={0} borderColor="white-smoke">
+                            <Stack m="auto" p="8" align="center" spacing='3'>
+                                <Heading fontSize="xl" fontWeight={700} textColor="white">WALLET</Heading>
+                                <Image       
+                                    src="/Metamask-icon.png"
+                                    alt="metamask logo"
+                                    width="25%"
+                                    height="auto"
+                                    />
+                                <Text fontSize="sm" textColor="#FF0420">Create wallet and add Optimism Mainnet</Text>
+                                </Stack>
+                                </Card>
+                                <Card className="w-2/3" shadow="sm 0px" textAlign="center" minW="0" bg="black" border="1px" gap={0} borderColor="white-smoke">
+                                <Stack m="auto" align="center" p="8" spacing='3'>
+                                    <Heading fontSize="xl" fontWeight={700} textColor="white">BRIDGE</Heading>
+                                    <Image       
+                                        src="/OP-Logo.png"
+                                        alt="Op logo"
+                                        width="25%"
+                                        height="auto"
+                                    />
+                                    <Text fontSize="sm" textColor="#FF0420">Bridge ETH to Optimism Mainnet</Text>
+                                </Stack>
+                                </Card>
+                                <Card className="w-2/3" shadow="sm 0px" textAlign="center" minW="0" bg="black" border="1px" gap={0} borderColor="white-smoke">
+                                <Stack m="auto" p="8" align="center" spacing='3'>
+                                <Heading fontSize="xl" fontWeight={700} textColor="white">SWAP</Heading>
+                                    <Image       
+                                            src="/uniswap-uni-logo.png"
+                                            alt="uniswap logo"
+                                            width="25%"
+                                            height="auto"
+                                        />
+                                    <Text fontSize="sm" textColor="#FF0420">Buy on DEX (Uniswap or Velodrome)</Text>
+                                </Stack>
+                                </Card>
+                                {/* </div> */}
+                            {/* <Link href="/bridge" className="text-[#FF0420] hover:text-white">Bridge & Swap with Magical Tux & LI.FI!</Link> */}
                     </div>
             </motion.div>
             </div>

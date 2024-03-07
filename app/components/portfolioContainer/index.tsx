@@ -76,7 +76,7 @@ const PortfolioContainer = () => {
             { !wallet && 
                 <TextTrans time="1000" text={
                 <div className="m-auto flex flex-col text-end items-center gap-y-6">
-                <h1 className="text-center text-xl">Connect wallet to get started!</h1>
+                <h1 className="text-center text-xl">Connect wallet to view your Optimistic NFTs!</h1>
                     <WalletButton/>
 
                 </div>

@@ -7,7 +7,7 @@ import Card from "../card"
 const OpContent = () => {
 
 return (
-    <div className="w-full h-screen">
+    <div className="w-full min-h-screen">
         <div className="h-full m-auto mt-20">
     <TextTrans time="1000"  text={
     <div className="h-full items-center text-white flex flex-col justify-evenly gap-20 z-0">
@@ -25,7 +25,7 @@ return (
         </div>
         <div className="m-auto">
                 <div className="flex flex-col items-center justify-between grid sm:grid-cols-3 z-0 gap-24">
-                <a  href="https://app.optimism.io/superchain"
+                <a  href="https://optimism.io/"
                     target="_blank"
                     rel="noopener noreferrer">
                     <Card label={"GET STARTED WITH OPTIMISM"} src="/OP-Logo.svg" width={180} rounded="full"/>

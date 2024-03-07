@@ -25,7 +25,7 @@ const Navbar = () => {
             </Link>
             <ul className="gap-x-12 flex text-white text-lg">
               <li>
-              <Menu>
+              {/* <Menu>
                   <MenuButton as={Button}
                     px={2}
                     py={2}
@@ -47,8 +47,35 @@ const Navbar = () => {
                       Optimism
                     </MenuItem>
                 </MenuList>
-                </Menu>
+                </Menu> */}
+              <Link href="/#buy">
+                <Button
+                    px={2}
+                    py={2}
+                    fontSize={18}
+                    textColor="white"
+                    _active={{bg: 'black', textColor: '#ff0420'}}
+                    _hover={{ bg: 'black', textColor: '#ff0420'}}
+                    bg="black">
+                  BUY
+                </Button>
+              </Link>
               </li>
+              <li>
+              <Link href="/optimism">
+                <Button
+                    px={2}
+                    py={2}
+                    fontSize={18}
+                    textColor="white"
+                    _active={{bg: 'black', textColor: '#ff0420'}}
+                    _hover={{ bg: 'black', textColor: '#ff0420'}}
+                    bg="black">
+                  OPTIMISM
+                </Button>
+              </Link>
+              </li>
+                
               <li>
               <Link href="/bridge">
                 <Button
