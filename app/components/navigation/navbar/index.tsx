@@ -71,7 +71,7 @@ const Navbar = () => {
                     _active={{bg: 'black', textColor: '#ff0420'}}
                     _hover={{ bg: 'black', textColor: '#ff0420'}}
                     bg="black">
-                  OPTIMISM
+                  OP
                 </Button>
               </Link>
               </li>

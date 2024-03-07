@@ -10,9 +10,9 @@ export default function Home() {
 
   return (
      <div>
-      <div className="w-full mt-20 tracking-wide z-1">
+      <div className="w-full tracking-wide z-1">
       <TextTrans time="1000" text={
-        <div className="flex flex-col items-center mt-10 m-auto justify-between gap-20 h-5/6">
+        <div className="flex flex-col my-24  items-center m-auto justify-between gap-20 h-5/6">
         <div className="flex flex-row h-1/2 items-center justify-between m-auto px-5 max-lg:flex-col w-3/4 max-md:w-3/4">
           <div className="m-auto w-1/2 max-lg:w-full">
           <ImageContent src="/founding-text.png" borderRadius="rounded-none"/>

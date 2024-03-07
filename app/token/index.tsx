@@ -5,11 +5,16 @@ import TextTrans from "../components/fontTrans";
 import Link from "next/link";
 import { Card, Text, Stack, Heading, Image, Box, Flex} from '@chakra-ui/react'
 import { motion } from 'framer-motion'
+import { BiSolidCopy } from "react-icons/bi";
+import {CopyToClipboard} from 'react-copy-to-clipboard';
+import { toast } from 'react-hot-toast';
+
+
 
 const Token = () => {
     return (  
-    <div id="buy" className="w-full min-h-screen mt-20 tracking-wide z-1 overflow-hidden">
-        <div className="w-3/4 h-full my-20 m-auto">
+    <div id="buy" className="w-full min-h-screen tracking-wide z-1 overflow-hidden">
+        <div className="w-3/4 h-full my-20  m-auto">
             <div className="flex max-lg:flex-col flex-row items-center text-center m-auto gap-5 justify-between w-full">
                 <div className="w-1/2 m-auto rounded-lg max-lg:w-full max-lg:h-1/2">
                     <motion.div initial={{x: -200}}
@@ -19,9 +24,16 @@ const Token = () => {
                             duration: .5
                         }}>
                         <div className="flex border border-slate-700/50 rounded-lg bg-black flex-col text-pretty justify-evenly text-white items-center z-40 max-lg:h-1/2 w-full py-6 max-lg:w-full gap-10 rounded-lg">
-                            <div>
+                            <div className="flex flex-col gap-1">
+                                {/* <div> */}
                                 <p className="text-2xl max-lg:text-lg [text-shadow:_10px_10px_20px_rgb(0_0_0_/_70%)]" >$TUX</p>
-                                <p className="text-xs text-[#FF0420] [text-shadow:_10px_10px_20px_rgb(0_0_0_/_70%)]" >0x17aabf6838a6303fc6e9c5a227dc1eb6d95c829a</p>
+                                {/* </div> */}
+                                <div className="flex flex-row gap-1">
+                                    <p className="text-xs text-[#FF0420] [text-shadow:_10px_10px_20px_rgb(0_0_0_/_70%)]">0x17aabf6838a6303fc6e9c5a227dc1eb6d95c829a</p>
+                                        <CopyToClipboard text="0x17aabf6838a6303fc6e9c5a227dc1eb6d95c829a">
+                                        <BiSolidCopy onClick={() => toast.success("Copied $Tux contract address!")} className="text-gray-700 cursor-pointer hover:text-gray-100 m-auto"/>
+                                        </CopyToClipboard>
+                                </div>
                             </div>
                             <div className="z-40 w-5/6 max-lg:w-1/2">
                                 <ImageContent src="/tokenPageImage.jpeg" borderRadius="rounded-full shadow-[0_35px_60px_15px_rgba(0,0,0,0.5)]"/>

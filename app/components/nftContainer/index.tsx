@@ -1,10 +1,8 @@
 import React from "react"
 import { useState, useRef, useEffect } from 'react';
-import NextImage from "next/image";
 import TextTrans from "../fontTrans";
-import { useAddress, useContract, useTotalCount, Web3Button, useMintNFT, darkTheme, MediaRenderer, useNFT, ThirdwebNftMedia, useMetadata, useNFTs, useTokenBalance, useChainId, ContractRoles } from "@thirdweb-dev/react";
+import { useAddress, useContract, Web3Button, darkTheme, useChainId } from "@thirdweb-dev/react";
 import { toast } from 'react-hot-toast';
-import { chakra } from "@chakra-ui/react";
 import { backgrounds, shadows, skins, eyes, clothes, outlines, mouths, hatsHair } from "@/app/constants/traitUrls";
 import Traits from '@/app/components/traits'
 import {
@@ -17,24 +15,18 @@ import {
   } from '@chakra-ui/react'
 
 
-const NftTrait = chakra(NextImage, {
-    baseStyle: { maxH: 120, maxW: 120 },
-    shouldForwardProp: (prop) => ['width', 'height', 'src', 'alt', 'border', 'borderWidth', 'borderStyle', 'borderColor', 'onClick', 'onHover'].includes(prop),
-  })
-
-
 const NftContainer = () => {
     const collectionAddress = process.env.NEXT_PUBLIC_NFT_GEN_ADDY;
     const address  = useAddress();
     const { contract } = useContract(collectionAddress, 'nft-collection');
-    const [background, setBackground] = useState<string>(backgrounds[0]);
+    const [background, setBackground] = useState<string>(backgrounds[1]);
     const [shadow, setShadow] = useState<string>(shadows[0]);
-    const [skin, setSkin] = useState<string>(skins[0]);
-    const [eye, setEye] = useState<string>(eyes[0]);
-    const [shirt, setShirt] = useState<string>(clothes[0])
+    const [skin, setSkin] = useState<string>(skins[3]);
+    const [eye, setEye] = useState<string>(eyes[9]);
+    const [shirt, setShirt] = useState<string>(clothes[3])
     const [outline, setOutline] = useState<string>(outlines[0])
-    const [mouth, setMouth] = useState<string>(mouths[0])
-    const [hatHair, setHatHair] = useState<string>(hatsHair[0])
+    const [mouth, setMouth] = useState<string>(mouths[1])
+    const [hatHair, setHatHair] = useState<string>(hatsHair[1])
     const [isMinting, setIsMinting] = useState(false);
     const canvasRef = useRef<HTMLCanvasElement>(null)
     const chainId = useChainId();
@@ -47,6 +39,7 @@ const NftContainer = () => {
 
         const canvas = canvasRef.current;
         const ctx = canvas.getContext('2d');
+        
 
         if (background && skin && eye && shirt && ctx){
             const backgroundImage = new globalThis.Image();
@@ -83,23 +76,30 @@ const NftContainer = () => {
                                 hatHairImage.onload = () => {
                                     ctx.drawImage(hatHairImage, 0, 0, canvas.width, canvas.height)
                                 }
+                                hatHairImage.setAttribute("crossOrigin", "anonymous");
                                 hatHairImage.src = hatHair;
                             }
+                            mouthImage.setAttribute("crossOrigin", "anonymous");
                             mouthImage.src = mouth;
                         }
+                        outlineImage.setAttribute("crossOrigin", "anonymous");
                         outlineImage.src = outline;
                     }
+                    shirtImage.setAttribute("crossOrigin", "anonymous");
                     shirtImage.src = shirt;
                 }
+                eyeImage.setAttribute("crossOrigin", "anonymous");
                 eyeImage.src = eye;
             }
+            skinImage.setAttribute("crossOrigin", "anonymous");
             skinImage.src = skin;
          }
+         shadowImage.setAttribute("crossOrigin", "anonymous");
         shadowImage.src = shadow;
         }
+        backgroundImage.setAttribute("crossOrigin", "anonymous");
         backgroundImage.src = background;
         }
-        
         canvas.toBlob
     }, 
     [background, skin, eye, shirt, mouth, hatHair])
@@ -107,7 +107,11 @@ const NftContainer = () => {
     const uploadAndMint = async () => {
         const canvas = canvasRef.current;
         if(canvas) {
-          canvas.toBlob((blob) => {
+            console.log("hi")
+            // canvas.setAttribute("crossOrigin", 'anonymous');  
+        const resizedCanvas = getResizedCanvas(canvas);
+        console.log(resizedCanvas);
+          resizedCanvas.toBlob((blob) => {
             if(blob) {
               return mint(blob)
             }
@@ -115,9 +119,22 @@ const NftContainer = () => {
         }
       };
 
+     const getResizedCanvas = (canvas: HTMLCanvasElement) => {
+        const originalWidth = 2048;
+        const originalHeight = 2048
+        var img = new globalThis.Image();
+        var tmpCanvas = document.createElement('canvas');
+        tmpCanvas.width = originalWidth;
+        tmpCanvas.height = originalHeight;
+    
+        var ctx = tmpCanvas.getContext('2d');
+        ctx.drawImage(canvas,0,0,canvas.width, canvas.height,0,0,originalWidth,originalHeight);
+        tmpCanvas.setAttribute("crossOrigin", "anonymous")
+        return tmpCanvas;
+    }
+
       const mint = async (blob: Blob) => {
         const loadingToast = toast.loading("Minting...")
-        const name = "TuxMember" 
         const formData = new FormData();
         formData.append('image', blob, 'tuxMemberNft.png');
         formData.append('address', address)
@@ -130,8 +147,6 @@ const NftContainer = () => {
                 body: formData
             }
             )
-
-
         const metadata = await uploadResponse.json();
         if (metadata.error != null){
             toast.dismiss(loadingToast);

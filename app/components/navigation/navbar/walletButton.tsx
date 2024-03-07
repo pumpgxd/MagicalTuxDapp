@@ -4,7 +4,7 @@ import React from 'react';
 const WalletButton = () => {
     return (
         <div>
-        <ConnectWallet btnTitle="CONNECT" className="walletButton"
+        <ConnectWallet btnTitle="CONNECT" className="walletButton hover:text-[#ff0420]"
         theme={darkTheme({
             colors: {
               accentText: "#FF0420",

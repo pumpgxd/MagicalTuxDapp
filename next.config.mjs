@@ -7,6 +7,7 @@ const nextConfig = {
               hostname: 'ipfs.io',
               port: '',
               pathname: '/ipfs/**',
+              
             },
           ],
         },
