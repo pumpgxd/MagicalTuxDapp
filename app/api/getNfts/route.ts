@@ -18,8 +18,8 @@ export async function POST(req: NextRequest){
 
     // Print total NFT count returned in the response:
     const nftsForOwner = await alchemy.nft.getNftsForOwner(walletAddress);
-    console.log("number of NFTs found:", nftsForOwner.totalCount);
-    console.log("...");
+    // console.log("number of NFTs found:", nftsForOwner.totalCount);
+    // console.log("...");
 
     // Print contract address and tokenId for each NFT:
     // for (const nft of nftsForOwner.ownedNfts) {     

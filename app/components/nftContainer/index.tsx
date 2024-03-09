@@ -29,8 +29,9 @@ const NftContainer = () => {
     const [hatHair, setHatHair] = useState<string>(hatsHair[1])
     const [isMinting, setIsMinting] = useState(false);
     const canvasRef = useRef<HTMLCanvasElement>(null)
+    const uploadCanvasRef = useRef<HTMLCanvasElement>(null);
     const chainId = useChainId();
-    // const [mintingText, setMintingText] = useState<string>('MINTING');
+    const originalDim = 2048;
 
 
 
@@ -39,6 +40,8 @@ const NftContainer = () => {
 
         const canvas = canvasRef.current;
         const ctx = canvas.getContext('2d');
+        const uploadCanvas = uploadCanvasRef.current;
+        const uploadCtx = uploadCanvas.getContext('2d');
         
 
         if (background && skin && eye && shirt && ctx){
@@ -46,35 +49,44 @@ const NftContainer = () => {
             backgroundImage.onload = () =>  {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height)
-
+                uploadCtx.clearRect(0, 0, originalDim, originalDim);
+                uploadCtx.drawImage(backgroundImage, 0, 0, originalDim, originalDim);
                 const shadowImage = new globalThis.Image();
                 shadowImage.onload = () => {
                     ctx.drawImage(shadowImage, 0, 0, canvas.width, canvas.height)
-             
+                    uploadCtx.drawImage(shadowImage, 0, 0, originalDim, originalDim);
+
                 const skinImage = new globalThis.Image();
                 skinImage.onload = () => {
                     ctx.drawImage(skinImage, 0, 0, canvas.width, canvas.height)
-                
+                    uploadCtx.drawImage(skinImage, 0, 0, originalDim, originalDim);
+
                 
                 const eyeImage = new globalThis.Image();
                 eyeImage.onload = () => {
                     ctx.drawImage(eyeImage, 0, 0, canvas.width, canvas.height)
+                    uploadCtx.drawImage(eyeImage, 0, 0, originalDim, originalDim);
 
                     const shirtImage = new globalThis.Image();
                     shirtImage.onload = () => {
                         ctx.drawImage(shirtImage, 0, 0, canvas.width, canvas.height)
+                        uploadCtx.drawImage(shirtImage, 0, 0, originalDim, originalDim);
 
                         const outlineImage = new globalThis.Image();
                         outlineImage.onload = () => {
                             ctx.drawImage(outlineImage, 0, 0, canvas.width, canvas.height)
+                            uploadCtx.drawImage(outlineImage, 0, 0, originalDim, originalDim);
 
                             const mouthImage = new globalThis.Image();
                             mouthImage.onload = () => {
                                 ctx.drawImage(mouthImage, 0, 0, canvas.width, canvas.height)
+                                uploadCtx.drawImage(mouthImage, 0, 0, originalDim, originalDim);
 
                                 const hatHairImage = new globalThis.Image();
                                 hatHairImage.onload = () => {
                                     ctx.drawImage(hatHairImage, 0, 0, canvas.width, canvas.height)
+                                    uploadCtx.drawImage(hatHairImage, 0, 0, originalDim, originalDim);
+
                                 }
                                 hatHairImage.setAttribute("crossOrigin", "anonymous");
                                 hatHairImage.src = hatHair;
@@ -101,17 +113,14 @@ const NftContainer = () => {
         backgroundImage.src = background;
         }
         canvas.toBlob
+        uploadCanvas.toBlob;
     }, 
     [background, skin, eye, shirt, mouth, hatHair])
 
     const uploadAndMint = async () => {
-        const canvas = canvasRef.current;
-        if(canvas) {
-            console.log("hi")
-            // canvas.setAttribute("crossOrigin", 'anonymous');  
-        const resizedCanvas = getResizedCanvas(canvas);
-        console.log(resizedCanvas);
-          resizedCanvas.toBlob((blob) => {
+        const uploadCanvas = uploadCanvasRef.current;
+        if(uploadCanvas) {
+          uploadCanvas.toBlob((blob) => {
             if(blob) {
               return mint(blob)
             }
@@ -119,19 +128,6 @@ const NftContainer = () => {
         }
       };
 
-     const getResizedCanvas = (canvas: HTMLCanvasElement) => {
-        const originalWidth = 2048;
-        const originalHeight = 2048
-        var img = new globalThis.Image();
-        var tmpCanvas = document.createElement('canvas');
-        tmpCanvas.width = originalWidth;
-        tmpCanvas.height = originalHeight;
-    
-        var ctx = tmpCanvas.getContext('2d');
-        ctx.drawImage(canvas,0,0,canvas.width, canvas.height,0,0,originalWidth,originalHeight);
-        tmpCanvas.setAttribute("crossOrigin", "anonymous")
-        return tmpCanvas;
-    }
 
       const mint = async (blob: Blob) => {
         const loadingToast = toast.loading("Minting...")
@@ -307,6 +303,7 @@ const NftContainer = () => {
         }/>
         </div>
         </div>
+        <canvas hidden ref={uploadCanvasRef} width="2048" height="2048" />
     </div>
    
 

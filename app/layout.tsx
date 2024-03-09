@@ -17,16 +17,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en" className="scroll-smooth" >
       <body className={ubuntu.className}>
-      <Providers>
         <div id="home" className="flex flex-col min-h-screen justify-between">
+        <ParticlesBackground/>
+            <Providers>
               <Navbar/>
-              <ParticlesBackground/>
               <Toaster position="bottom-right"
                 toastOptions={{
                   style: {
@@ -40,9 +40,10 @@ export default function RootLayout({
                   
                 }}/>
                 {children}
+                </Providers>
               <FooterBar/>
         </div>
-        </Providers>
+    
         </body>
     </html>
   );

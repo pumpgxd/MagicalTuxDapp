@@ -20,7 +20,6 @@ const PortfolioContainer = () => {
                 walletAdd: address,
                 chain: chainId
             }
-            console.log(requestBody);
             const response = await fetch('/api/getNfts', {
                 method: "POST",
                 body: JSON.stringify(requestBody)
@@ -65,7 +64,7 @@ const PortfolioContainer = () => {
     return (
         <div className="m-auto text-center z-0 w-5/6">
         
-            {userNfts  && 
+            {(userNfts && wallet)  && 
                 <div className="pt-10 flex m-auto flex-wrap items-center justify-center z-0">
                 { renderUserNfts(userNfts)}
             </div>

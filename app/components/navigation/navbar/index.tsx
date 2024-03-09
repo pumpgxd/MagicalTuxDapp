@@ -91,8 +91,10 @@ const Navbar = () => {
               </Link>
               </li>
               <li>
-                <Menu>
-                  <MenuButton as={Button}
+  
+                <Menu isLazy>
+                  <MenuButton
+                    as={Button}
                     px={2}
                     py={2}
                     fontSize={18}
@@ -103,11 +105,15 @@ const Navbar = () => {
                     NFTs
                   </MenuButton>
                   <MenuList sx={{minW: "0px", w: 'fit-content', borderColor: "#ff0420", opacacity: "20%", }} border="1px" as={Box} borderStyle="solid"  borderRadius="8%" bg="black">
-                    <MenuItem as={Link} href="/nfts" w="100%" bg="black" _hover={{bg: "gray.800"}}>
-                      Mint
+                    <MenuItem   w="100%" bg="black" _hover={{bg: "gray.800"}}>
+                      <Link href="/nfts">
+                        Mint
+                      </Link>
                     </MenuItem>
-                    <MenuItem as={Link} href="/nftPortfolio" w="100%" bg="black" _hover={{bg: "gray.800"}}>
+                    <MenuItem w="100%" bg="black" _hover={{bg: "gray.800"}}>
+                      <Link href="/nftPortfolio">
                       Portfolio
+                      </Link>
                     </MenuItem>
                 </MenuList>
                 </Menu>
