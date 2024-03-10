@@ -153,7 +153,7 @@ const NftContainer = () => {
         // const tx = await contract?.mintTo(address || "", metadata)
         const tx = await contract?.signature.mint(metadata);
         const receipt = tx.receipt;  
-        console.log(tx?.receipt)  
+        console.log(receipt)  
         console.log(tx);
         toast.dismiss(loadingToast);
         handleSuccessMint();

@@ -27,7 +27,6 @@ type ProviderType = {
 
 const Providers = ({children}: ProviderType) => {
   return (
-    <ChakraProvider theme={theme}>
        <ThirdwebProvider 
         supportedWallets={[
             metamaskWallet(),
@@ -52,9 +51,11 @@ const Providers = ({children}: ProviderType) => {
               secondaryButtonText: "#ffffff",
             },
           })}>
+        <ChakraProvider theme={theme}>
         {children}
+        </ChakraProvider>
         </ThirdwebProvider>
-    </ChakraProvider>
+
   )
 }
 

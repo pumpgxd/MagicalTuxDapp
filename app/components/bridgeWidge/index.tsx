@@ -15,8 +15,8 @@ const BridgeWidge = () => {
     const provider = signer?.provider;
 
     return (
-        <div className="items-center flex">
-        <div className="m-auto h-[580px]">
+        <div className="items-center flex min-h-screen">
+        <div className="m-auto">
         { provider ?
         <TextTrans time="1000" text={ 
         <LiFiWidgetNext/>
