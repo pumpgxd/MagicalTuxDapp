@@ -2,14 +2,31 @@
 import Image from "next/image";
 import WalletButton from "./walletButton";
 import Link from "next/link";
-import {Menu , MenuButton, MenuList, MenuItem }from "@chakra-ui/react";
+import {Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  Text,
+  useDisclosure, 
+  IconButton}from "@chakra-ui/react";
+import { HamburgerIcon } from '@chakra-ui/icons'
 import { Button, Box } from "@chakra-ui/react";
+import { navLinks } from "@/app/constants/navLinks";
 
 const Navbar = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+
     return (
       <>
         <div className="w-full flex h-20 top-0 z-50 sticky bg-black">
-          <div className="container mx-auto h-full">
+          <div className="container mx-auto px-5 h-full">
             <div className="flex min-w-[70px] justify-between items-center h-full text-[#FFFFFF]">
             <Link href="/#home">
               <div className="lg:w-[150px]">
@@ -23,32 +40,9 @@ const Navbar = () => {
             />
             </div>
             </Link>
-            <ul className="gap-x-12 flex text-white text-lg">
+            <ul className="gap-x-12 flex text-white text-lg max-lg:hidden">
               <li>
-              {/* <Menu>
-                  <MenuButton as={Button}
-                    px={2}
-                    py={2}
-                    fontSize={18}
-                    textColor="white"
-                    _active={{bg: 'black', textColor: '#ff0420'}}
-                    _hover={{ bg: 'black', textColor: "#ff0420" }}
-                    bg="black">
-                    MAGICAL TUX
-                  </MenuButton>
-                  <MenuList sx={{minW: "0px", w: 'fit-content', borderColor: "#ff0420", opacacity: "20%", }} border="1px" as={Box} borderStyle="solid"  borderRadius="8%" bg="black">
-                    <MenuItem as={Link} href="/#token" bg="black" w="100%" _hover={{bg: "gray.800"}}>
-                      Token
-                    </MenuItem>
-                    <MenuItem as={Link} href="/#vision" bg="black" w="100%" _hover={{bg: "gray.800"}}>
-                      Vision
-                    </MenuItem>
-                    <MenuItem as={Link} href="/optimism" bg="black" w="100%" _hover={{bg: "gray.800"}}>
-                      Optimism
-                    </MenuItem>
-                </MenuList>
-                </Menu> */}
-              <Link href="/#buy">
+              <Link href={navLinks.buy}>
                 <Button
                     px={2}
                     py={2}
@@ -62,7 +56,7 @@ const Navbar = () => {
               </Link>
               </li>
               <li>
-              <Link href="/optimism">
+              <Link href={navLinks.optimism}>
                 <Button
                     px={2}
                     py={2}
@@ -77,7 +71,7 @@ const Navbar = () => {
               </li>
                 
               <li>
-              <Link href="/bridge">
+              <Link href={navLinks.bridge}>
                 <Button
                     px={2}
                     py={2}
@@ -105,27 +99,74 @@ const Navbar = () => {
                     NFTs
                   </MenuButton>
                   <MenuList sx={{minW: "0px", w: 'fit-content', borderColor: "#ff0420", opacacity: "20%", }} border="1px" as={Box} borderStyle="solid"  borderRadius="8%" bg="black">
-                    <MenuItem   w="100%" bg="black" _hover={{bg: "gray.800"}}>
-                      <Link href="/nfts">
+                    <MenuItem as={Link} href={navLinks.nfts} w="100%" bg="black" _hover={{bg: "gray.800"}}>
                         Mint
-                      </Link>
                     </MenuItem>
-                    <MenuItem w="100%" bg="black" _hover={{bg: "gray.800"}}>
-                      <Link href="/nftPortfolio">
+                    <MenuItem as={Link} href={navLinks.nftPortfolio} w="100%" bg="black" _hover={{bg: "gray.800"}}>
                       Portfolio
-                      </Link>
                     </MenuItem>
                 </MenuList>
                 </Menu>
               </li>
             </ul>
-            <div className="hidden md:flex">
+            <div className="max-lg:hidden flex">
             <WalletButton />
             </div>
-            </div>
+            <div className="lg:max-2xl:hidden">
+              <Button 
+                as={IconButton}
+                bg="#ff0420"
                 
+                textColor="white"
+                _hover={{bg: "black", textColor: '#ff0420'}}
+                onClick={onOpen}
+                icon={<HamburgerIcon fontSize="xl" fontStyle="bold"/>}/>
+            </div>
+            </div>
           </div>
         </div>
+        <Modal isCentered isOpen={isOpen} onClose={onClose}>
+                <ModalOverlay
+                    bg='blackAlpha.300'
+                    backdropFilter='auto'
+                    backdropBlur='10px'
+                  />
+            <ModalContent bg="black">
+              <ModalHeader>
+                <WalletButton/>
+              </ModalHeader>
+              <ModalCloseButton />
+              <ModalBody>
+                <div className="flex flex-col gap-2">
+                <Link href={navLinks.buy}>
+                  <div onClick={onClose} className="hover:bg-slate-700/60">
+                    Buy
+                  </div>
+                </Link>
+                <Link href={navLinks.optimism}>
+                  <div onClick={onClose} className="hover:bg-slate-700/60">
+                    Optimism
+                  </div>
+                </Link>
+                <Link href={navLinks.bridge}>
+                  <div onClick={onClose} className="hover:bg-slate-700/60">
+                    Bridge/Swap
+                  </div>
+                </Link>
+                <Link href={navLinks.nfts}>
+                  <div onClick={onClose} className="hover:bg-slate-700/60">
+                    NFTux
+                  </div>
+                </Link>
+                <Link href={navLinks.nftPortfolio}>
+                  <div onClick={onClose} className="hover:bg-slate-700/60">
+                    NFT Portfolio
+                  </div>
+                </Link>
+                </div>
+              </ModalBody>
+            </ModalContent>
+          </Modal>
       </>
     );
   };

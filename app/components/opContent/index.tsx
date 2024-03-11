@@ -7,11 +7,11 @@ import Card from "../card"
 const OpContent = () => {
 
 return (
-    <div className="w-full min-h-screen">
-        <div className="h-full m-auto mt-20">
+    <div className="w-full min-h-screen pb-10">
+        <div className="h-full m-auto mt-12 ">
     <TextTrans time="1000"  text={
     <div className="h-full items-center text-white flex flex-col justify-evenly gap-20 z-0">
-        <div  className="text-center items-center flex grid sm:grid-rows-2 ">
+        <div  className="text-center items-center w-5/6 gap-2 flex grid grid-rows-2 ">
             <p className="text-2xl">WELCOME TO THE SUPERCHAIN</p>
             <div className="m-auto">
             <Image       
@@ -24,7 +24,7 @@ return (
             </div>
         </div>
         <div className="m-auto">
-                <div className="flex flex-col items-center justify-between grid sm:grid-cols-3 z-0 gap-24">
+                <div className="flex flex-row items-center max-lg:flex-col z-0 gap-36">
                 <a  href="https://optimism.io/"
                     target="_blank"
                     rel="noopener noreferrer">
