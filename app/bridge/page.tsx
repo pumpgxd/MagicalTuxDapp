@@ -6,7 +6,7 @@ import BridgeWidge from "../components/bridgeWidge";
 const Bridge = () => {
 
     return (
-        <div>
+        <div min-h-screen>
             <BridgeWidge/>
         </div>
     )

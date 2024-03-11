@@ -1,14 +1,12 @@
 "use client"
 import React from 'react'
-import TWProvider from './TWProvider'
 import { ChakraProvider, extendTheme } from '@chakra-ui/react'
-import type { StyleFunctionProps } from '@chakra-ui/styled-system'
+import { ThirdwebProvider, metamaskWallet, coinbaseWallet, walletConnect, trustWallet, rainbowWallet, zerionWallet, darkTheme } from "@thirdweb-dev/react";
+import { OpSepoliaTestnet, Optimism, Ethereum } from "@thirdweb-dev/chains";
 
-// Version 1: Using objects
 const theme = extendTheme({
   styles: {
     global: {
-      // styles for the `body`
       body: {
         bg: 'black',
         color: 'white',
@@ -29,12 +27,35 @@ type ProviderType = {
 
 const Providers = ({children}: ProviderType) => {
   return (
-    
-    <TWProvider>
-      <ChakraProvider theme={theme}>
+       <ThirdwebProvider 
+        supportedWallets={[
+            metamaskWallet(),
+            coinbaseWallet(),
+            walletConnect(),
+            trustWallet(),
+            rainbowWallet(),
+            zerionWallet()
+        ]} 
+        supportedChains={[OpSepoliaTestnet, Optimism, Ethereum]}
+        clientId={process.env.TUX_CLIENT_ID}
+        theme={darkTheme({
+            colors: {
+              accentText: "#FF0420",
+              accentButtonBg: "#FF0420",
+              modalBg: "#000000",  
+              connectedButtonBg: "#000000",
+              primaryText: "#ffffff",
+              borderColor: "#FF0420",
+              primaryButtonBg: "#FF0420",
+              primaryButtonText: "#ffffff",
+              secondaryButtonText: "#ffffff",
+            },
+          })}>
+        <ChakraProvider theme={theme}>
         {children}
-      </ChakraProvider>
-    </TWProvider>
+        </ChakraProvider>
+        </ThirdwebProvider>
+
   )
 }
 

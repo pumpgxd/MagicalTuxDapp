@@ -29,14 +29,14 @@ export async function POST(req: NextRequest) {
         );    
 
   
-    const hasMinted = (await nftCollection.balanceOf(address)).gt(0);
-        if (hasMinted) {
-        return NextResponse.json({
-            error: "Wallet already minted!"
-        }, {
-            status: 400
-            });
-        }    
+    // const hasMinted = (await nftCollection.balanceOf(address)).gt(0);
+    //     if (hasMinted) {
+    //     return NextResponse.json({
+    //         error: "Wallet already minted!"
+    //     }, {
+    //         status: 400
+    //         });
+    //     }    
 
     const tux = await sdk.getContract(
             process.env.TUX_ADDY,

@@ -6,9 +6,9 @@ import Image from 'next/image'
 
 const FooterBar = () => {
     return (
-        <div className="w-full bottom-0">
-          <div className="flex flex-col items-center justify-between px-40 h-full text-2xl ">
-           <div className="flex flex-row items-start gap-6 pb-2 px-2 text-[#FF0420] justify-between">
+        <div className="w-full sticky z-50 bg-black h-16 bottom-0 mx-auto">
+          <div className="flex items-center justify-between max-md:px-20 h-full w-4/5 m-auto text-3xl ">
+           <div className="flex m-auto flex-row items-center gap-8 pb-2 px-2 text-[#FF0420] justify-between">
               <a className=""
               href="https://t.me/magicaltuxportal"
               target="_blank"
@@ -38,8 +38,8 @@ const FooterBar = () => {
             </a>
 
           </div>
-          <div>
-            <div className="flex flex-row items-center text-center gap-2">
+          {/* <div>
+            <div className="flex flex-row text-nowrap items-center text-center gap-2">
               <p className="text-xs">Powered By:</p>
               <Image       
                   src="/Alchemy.png"
@@ -58,7 +58,7 @@ const FooterBar = () => {
                   priority
                 />
             </div>
-        </div>
+        </div> */}
         </div>
       </div>
     )

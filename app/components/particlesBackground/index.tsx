@@ -31,7 +31,7 @@ const ParticlesBackground = () => {
   }, []);
 
   const particlesLoaded = async (container?: Container): Promise<void> => {
-    console.log(container);
+    // console.log(container);
   };
 
   const options: ISourceOptions = useMemo(
@@ -54,7 +54,7 @@ const ParticlesBackground = () => {
             quantity: 10,
           },
           repulse: {
-            distance: 90,
+            distance: 80,
             duration: 0.4,
           },
         },
@@ -76,7 +76,7 @@ const ParticlesBackground = () => {
           value: 600,
         },
         opacity: {
-          value: 0.6,
+          value: 0.4,
         },
         shape: {
           type: "circle",

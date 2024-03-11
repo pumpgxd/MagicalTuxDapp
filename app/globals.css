@@ -29,3 +29,21 @@ body {
   border-style: "solid" !important;
 }
 
+*::-webkit-scrollbar {
+  scrollbar-width: none;
+  scrollBar-color: rgb(0, 0, 0);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgb(255, 4, 32);
+  border-radius: 10px;
+  scrollbar-width: 10px;
+}
+
+#buy {
+  background-color: #000000;
+  opacity: 1;
+  background-image:  radial-gradient(#FF0420 1.6500000000000001px, transparent 1.6500000000000001px), radial-gradient(#FF0420 1.6500000000000001px, #000000 1.6500000000000001px);
+  background-size: 66px 66px;
+  background-position: 0 0,33px 33px;
+}
