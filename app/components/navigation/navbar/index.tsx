@@ -137,7 +137,7 @@ const Navbar = () => {
               </ModalHeader>
               <ModalCloseButton />
               <ModalBody>
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col text-xl pb-5">
                 <Link href={navLinks.buy}>
                   <div onClick={onClose} className="hover:bg-slate-700/60">
                     Buy
