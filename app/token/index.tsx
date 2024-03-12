@@ -58,7 +58,7 @@ const Token = () => {
                                     src="/Metamask-icon.png"
                                     alt="metamask logo"
                                     width="25%"
-                                    height="25%"
+                                    height="auto"
                                     />
                                 <Text fontSize="sm" textColor="#FF0420">Create wallet and add Optimism Mainnet</Text>
                                 </Stack>
@@ -70,7 +70,7 @@ const Token = () => {
                                         src="/OP-Logo.png"
                                         alt="Op logo"
                                         width="25%"
-                                        height="auto"
+                                        height="20%"
                                     />
                                     <Text fontSize="sm" textColor="#FF0420">Bridge ETH to Optimism Mainnet</Text>
                                 </Stack>
