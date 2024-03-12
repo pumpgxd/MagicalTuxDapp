@@ -29,7 +29,7 @@ const Token = () => {
                                 <p className="text-2xl max-lg:text-lg [text-shadow:_10px_10px_20px_rgb(0_0_0_/_70%)]" >$TUX</p>
                                 {/* </div> */}
                                 <div className="flex flex-row gap-1">
-                                    <p className="text-xs text-[#FF0420] [text-shadow:_10px_10px_20px_rgb(0_0_0_/_70%)]">0x17aabf6838a6303fc6e9c5a227dc1eb6d95c829a</p>
+                                    <p className="text-xs text-[#FF0420] [text-shadow:_10px_10px_20px_rgb(0_0_0_/_70%)]">Contract Address</p>
                                         <CopyToClipboard text="0x17aabf6838a6303fc6e9c5a227dc1eb6d95c829a">
                                         <BiSolidCopy onClick={() => toast.success("Copied $Tux contract address!")} className="text-gray-700 cursor-pointer hover:text-gray-100 m-auto"/>
                                         </CopyToClipboard>
@@ -60,7 +60,7 @@ const Token = () => {
                                     src="/Metamask-icon.png"
                                     alt="metamask logo"
                                     width="25%"
-                                    height="auto"
+                                    height="25%"
                                     />
                                 <Text fontSize="sm" textColor="#FF0420">Create wallet and add Optimism Mainnet</Text>
                                 </Stack>
@@ -72,7 +72,7 @@ const Token = () => {
                                         src="/OP-Logo.png"
                                         alt="Op logo"
                                         width="25%"
-                                        height="auto"
+                                        height="25%"
                                     />
                                     <Text fontSize="sm" textColor="#FF0420">Bridge ETH to Optimism Mainnet</Text>
                                 </Stack>
@@ -84,7 +84,7 @@ const Token = () => {
                                             src="/uniswap-uni-logo.png"
                                             alt="uniswap logo"
                                             width="25%"
-                                            height="auto"
+                                            height="25%"
                                         />
                                     <Text fontSize="sm" textColor="#FF0420">Buy on DEX (Uniswap or Velodrome)</Text>
                                 </Stack>

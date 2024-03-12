@@ -38,20 +38,20 @@ export async function POST(req: NextRequest) {
     //         });
     //     }    
 
-    const tux = await sdk.getContract(
-            process.env.TUX_ADDY,
-            "token"
-    );    
+    // const tux = await sdk.getContract(
+    //         process.env.TUX_ADDY,
+    //         "token"
+    // );    
 
-    const tuxBalance = await tux.balanceOf(address);
-        if (tuxBalance.value.toBigInt() < 100000){
-            console.log(tuxBalance.value);
-            return NextResponse.json({
-                error: "Must hold 100K $Tux to mint!"
-            }, {
-                status: 400
-            })
-        }
+    // const tuxBalance = await tux.balanceOf(address);
+    //     if (tuxBalance.value.toBigInt() < 100000){
+    //         console.log(tuxBalance.value);
+    //         return NextResponse.json({
+    //             error: "Must hold 100K $Tux to mint!"
+    //         }, {
+    //             status: 400
+    //         })
+    //     }
 
         if(!file) {
             return NextResponse.json({
