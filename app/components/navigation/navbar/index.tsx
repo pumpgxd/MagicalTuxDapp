@@ -19,10 +19,20 @@ import {Menu,
 import { HamburgerIcon } from '@chakra-ui/icons'
 import { Button, Box } from "@chakra-ui/react";
 import { navLinks } from "@/app/constants/navLinks";
+import { useWallet } from '@thirdweb-dev/react';
 
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const wallet = useWallet();
 
+  const handleModalWalletClick = () => {
+      console.log(wallet);
+      if (!wallet){
+        return onClose;
+      }
+
+  }
+  
     return (
       <>
         <div className="w-full flex h-20 top-0 z-50 sticky bg-black">
@@ -132,7 +142,7 @@ const Navbar = () => {
                     backdropBlur='10px'
                   />
             <ModalContent bg="black">
-              <ModalHeader>
+              <ModalHeader onClick={!wallet ? onClose : () => null}>
                 <WalletButton/>
               </ModalHeader>
               <ModalCloseButton />
