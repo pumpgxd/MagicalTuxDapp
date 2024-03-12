@@ -53,7 +53,7 @@ const Token = () => {
                             duration: .5
                         }}>
                     <div className="text-center flex flex-col items-center text-center text-white h-full w-full justify-evenly gap-5 max-lg:w-full max-lg:h-1/2 text-pretty">
-                            <Card className="w-2/3" shadow="sm 0px" textAlign="center" align="center" minW="0" bg="black" border="1px" gap={0} borderColor="white-smoke">
+                            <Card className="lg:w-2/3 sm:max-lg:w-full" shadow="sm 0px" textAlign="center" minW="0" bg="black" border="1px" gap={0} borderColor="white-smoke">
                             <Stack m="auto" p="8" align="center" spacing='3'>
                                 <Heading fontSize="xl" fontWeight={700} textColor="white">WALLET</Heading>
                                 <Image       
@@ -65,7 +65,7 @@ const Token = () => {
                                 <Text fontSize="sm" textColor="#FF0420">Create wallet and add Optimism Mainnet</Text>
                                 </Stack>
                                 </Card>
-                                <Card className="w-2/3" shadow="sm 0px" textAlign="center" minW="0" bg="black" border="1px" gap={0} borderColor="white-smoke">
+                                <Card className="lg:w-2/3 sm:max-lg:w-full" shadow="sm 0px" textAlign="center" minW="0" bg="black" border="1px" gap={0} borderColor="white-smoke">
                                 <Stack m="auto" align="center" p="8" spacing='3'>
                                     <Heading fontSize="xl" fontWeight={700} textColor="white">BRIDGE</Heading>
                                     <Image       
@@ -77,7 +77,7 @@ const Token = () => {
                                     <Text fontSize="sm" textColor="#FF0420">Bridge ETH to Optimism Mainnet</Text>
                                 </Stack>
                                 </Card>
-                                <Card className="w-2/3" shadow="sm 0px" textAlign="center" minW="0" bg="black" border="1px" gap={0} borderColor="white-smoke">
+                                <Card className="lg:w-2/3 sm:max-lg:w-full" shadow="sm 0px" textAlign="center" minW="0" bg="black" border="1px" gap={0} borderColor="white-smoke">
                                 <Stack m="auto" p="8" align="center" spacing='3'>
                                 <Heading fontSize="xl" fontWeight={700} textColor="white">SWAP</Heading>
                                     <Image       

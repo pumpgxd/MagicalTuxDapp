@@ -132,7 +132,7 @@ const Navbar = () => {
                     backdropBlur='10px'
                   />
             <ModalContent bg="black">
-              <ModalHeader onClick={onClose}>
+              <ModalHeader>
                 <WalletButton/>
               </ModalHeader>
               <ModalCloseButton />
