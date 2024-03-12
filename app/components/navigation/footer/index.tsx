@@ -7,7 +7,7 @@ import Image from 'next/image'
 const FooterBar = () => {
     return (
         <div className="w-full sticky z-50 bg-black h-16 bottom-0 mx-auto">
-          <div className="flex items-center justify-between max-md:px-20 h-full w-4/5 m-auto text-3xl ">
+          <div className="flex items-center justify-between max-md:px-20 h-full w-full m-auto text-3xl ">
            <div className="flex m-auto flex-row items-center gap-8 pb-2 px-2 text-[#FF0420] justify-between">
               <a className=""
               href="https://t.me/magicaltuxportal"

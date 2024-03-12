@@ -112,7 +112,7 @@ const Navbar = () => {
             <div className="max-lg:hidden flex">
             <WalletButton />
             </div>
-            <div className="lg:max-2xl:hidden">
+            <div className="lg:hidden">
               <Button 
                 as={IconButton}
                 bg="#ff0420"
@@ -132,7 +132,7 @@ const Navbar = () => {
                     backdropBlur='10px'
                   />
             <ModalContent bg="black">
-              <ModalHeader>
+              <ModalHeader onClick={onClose}>
                 <WalletButton/>
               </ModalHeader>
               <ModalCloseButton />
