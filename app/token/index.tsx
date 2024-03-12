@@ -1,8 +1,6 @@
 'use client'
 import React from "react"
 import ImageContent from "../components/imageContent";
-import TextTrans from "../components/fontTrans";
-import Link from "next/link";
 import { Card, Text, Stack, Heading, Image, Box, Flex} from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import { BiSolidCopy } from "react-icons/bi";
@@ -72,7 +70,7 @@ const Token = () => {
                                         src="/OP-Logo.png"
                                         alt="Op logo"
                                         width="25%"
-                                        height="25%"
+                                        height="auto"
                                     />
                                     <Text fontSize="sm" textColor="#FF0420">Bridge ETH to Optimism Mainnet</Text>
                                 </Stack>
