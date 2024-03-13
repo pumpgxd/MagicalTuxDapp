@@ -22,6 +22,13 @@ export async function POST(req: NextRequest) {
     const file = formData.get("image") as Blob | null;
     const collectionAddy = formData.get("collectionAddy") as string;
     const address = formData.get("address") as string;
+    const background = formData.get("background") as string;
+    const skin = formData.get("skin") as string;
+    const eyes = formData.get("eyes") as string;
+    const shirt = formData.get("shirt") as string;
+    const mouth = formData.get("mouth") as string;
+    const hatHair = formData.get("hatHair") as string;
+  
 
     const nftCollection = await sdk.getContract(
             collectionAddy,
@@ -78,9 +85,17 @@ export async function POST(req: NextRequest) {
             
             const id = await nftCollection.call("nextTokenIdToMint");
             const metadata = {
-                name: `tuxy#${id}`,
-                description: "tux gang",
-                image: uriResponse
+                name: `TuxOG#${id}`,
+                description: "Tux OG",
+                image: uriResponse,
+                attributes: [
+                    {"trait_type": "Background",  "value": background},
+                    {"trait_type": "Skin",  "value": skin},
+                    {"trait_type": "Eyes",  "value": eyes},
+                    {"trait_type": "Shirt",  "value": shirt},
+                    {"trait_type": "Mouth",  "value": mouth},
+                    {"trait_type": "Hat/Hair",  "value": hatHair}
+                ]
             }
             const metaDataResponse = await storage.upload(JSON.stringify(metadata))
 

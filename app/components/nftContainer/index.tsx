@@ -14,19 +14,23 @@ import {
     Box
   } from '@chakra-ui/react'
 
+interface Trait {
+    name: string;
+    url: string;
+  }
 
 const NftContainer = () => {
     const collectionAddress = process.env.NEXT_PUBLIC_NFT_GEN_ADDY;
     const address  = useAddress();
     const { contract } = useContract(collectionAddress, 'nft-collection');
-    const [background, setBackground] = useState<string>(backgrounds[1]);
+    const [background, setBackground] = useState<Trait>(backgrounds[1]);
     const [shadow, setShadow] = useState<string>(shadows[0]);
-    const [skin, setSkin] = useState<string>(skins[3]);
-    const [eye, setEye] = useState<string>(eyes[9]);
-    const [shirt, setShirt] = useState<string>(clothes[3])
+    const [skin, setSkin] = useState<Trait>(skins[3]);
+    const [eye, setEye] = useState<Trait>(eyes[9]);
+    const [shirt, setShirt] = useState<Trait>(clothes[3])
     const [outline, setOutline] = useState<string>(outlines[0])
-    const [mouth, setMouth] = useState<string>(mouths[1])
-    const [hatHair, setHatHair] = useState<string>(hatsHair[1])
+    const [mouth, setMouth] = useState<Trait>(mouths[1])
+    const [hatHair, setHatHair] = useState<Trait>(hatsHair[1])
     const [isMinting, setIsMinting] = useState(false);
     const canvasRef = useRef<HTMLCanvasElement>(null)
     const uploadCanvasRef = useRef<HTMLCanvasElement>(null);
@@ -89,28 +93,28 @@ const NftContainer = () => {
 
                                 }
                                 hatHairImage.setAttribute("crossOrigin", "anonymous");
-                                hatHairImage.src = hatHair;
+                                hatHairImage.src = hatHair.url;
                             }
                             mouthImage.setAttribute("crossOrigin", "anonymous");
-                            mouthImage.src = mouth;
+                            mouthImage.src = mouth.url;
                         }
                         outlineImage.setAttribute("crossOrigin", "anonymous");
                         outlineImage.src = outline;
                     }
                     shirtImage.setAttribute("crossOrigin", "anonymous");
-                    shirtImage.src = shirt;
+                    shirtImage.src = shirt.url;
                 }
                 eyeImage.setAttribute("crossOrigin", "anonymous");
-                eyeImage.src = eye;
+                eyeImage.src = eye.url;
             }
             skinImage.setAttribute("crossOrigin", "anonymous");
-            skinImage.src = skin;
+            skinImage.src = skin.url;
          }
          shadowImage.setAttribute("crossOrigin", "anonymous");
         shadowImage.src = shadow;
         }
         backgroundImage.setAttribute("crossOrigin", "anonymous");
-        backgroundImage.src = background;
+        backgroundImage.src = background.url;
         }
         canvas.toBlob
         uploadCanvas.toBlob;
@@ -135,8 +139,12 @@ const NftContainer = () => {
         formData.append('image', blob, 'tuxMemberNft.png');
         formData.append('address', address)
         formData.append('collectionAddy', collectionAddress)
-        console.log(formData);
-        console.log(chainId);
+        formData.append('background', background.name)
+        formData.append('skin', skin.name)
+        formData.append('eyes', eye.name)
+        formData.append('shirt', shirt.name)
+        formData.append('mouth', mouth.name)
+        formData.append('hatHair', hatHair.name)    
         try {
             const uploadResponse = await fetch('/api/signUpload', {
                 method: "POST",
