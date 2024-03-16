@@ -5,7 +5,7 @@ import "./globals.css";
 import Navbar from "./components/navigation/navbar";
 import FooterBar from "./components/navigation/footer";
 import Providers from "./_providers/providers";
-import ParticlesBackground from "./components/particlesBackground";
+// import ParticlesBackground from "./components/particlesBackground";
 
 const ubuntu= Lato({ subsets: ["latin"], weight: "700" });
 
@@ -25,7 +25,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth" >
       <body className={ubuntu.className}>
         <div id="home" className="flex flex-col min-h-screen justify-between">
-        <ParticlesBackground/>
+        {/* <ParticlesBackground/> */}
             <Providers>
               <Navbar/>
               <Toaster position="bottom-right"
