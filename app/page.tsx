@@ -2,7 +2,6 @@
 import React from "react";
 import ImageContent from "./components/imageContent";
 import Token from "./token";
-import Vision from './vision'
 import { Card, Text, Stack, Heading } from "@chakra-ui/react";
 import TextTrans from "./components/fontTrans";
 
@@ -46,7 +45,6 @@ export default function Home() {
         />
         </div>
       <Token/>
-      {/* <Vision/> */}
      </div>
   );
 }

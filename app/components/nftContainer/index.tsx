@@ -24,11 +24,11 @@ const NftContainer = () => {
     const address  = useAddress();
     const { contract } = useContract(collectionAddress, 'nft-collection');
     const [background, setBackground] = useState<Trait>(backgrounds[1]);
-    const [shadow, setShadow] = useState<string>(shadows[0]);
+    const shadow = shadows[0];
     const [skin, setSkin] = useState<Trait>(skins[3]);
     const [eye, setEye] = useState<Trait>(eyes[9]);
     const [shirt, setShirt] = useState<Trait>(clothes[3])
-    const [outline, setOutline] = useState<string>(outlines[0])
+    const outline = outlines[0];
     const [mouth, setMouth] = useState<Trait>(mouths[1])
     const [hatHair, setHatHair] = useState<Trait>(hatsHair[1])
     const [isMinting, setIsMinting] = useState(false);
