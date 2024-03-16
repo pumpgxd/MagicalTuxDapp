@@ -26,18 +26,18 @@ const PortfolioContainer = () => {
             })
             const json = await response.json();
             const finalResponse = json.ownedNfts.filter(i => i.raw.metadata.image!=null);
-            console.log(finalResponse)
+            // console.log(finalResponse)
             if (finalResponse.length == 0){
                 setNoNfts(true)
             }
             setUserNfts(finalResponse);
             
         }
-        if (address && chainId && wallet){
+        if (address && chainId){
             fetchNfts()
           
         }
-    }, [address, chainId, wallet])
+    }, [address])
 
     const renderUserNfts = (nfts:any)=> {
         return (

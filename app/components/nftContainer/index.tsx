@@ -34,9 +34,7 @@ const NftContainer = () => {
     const [isMinting, setIsMinting] = useState(false);
     const canvasRef = useRef<HTMLCanvasElement>(null)
     const uploadCanvasRef = useRef<HTMLCanvasElement>(null);
-    const chainId = useChainId();
     const originalDim = 2048;
-
 
 
     useEffect(() => {
@@ -47,7 +45,6 @@ const NftContainer = () => {
         const uploadCanvas = uploadCanvasRef.current;
         const uploadCtx = uploadCanvas.getContext('2d');
         
-
         if (background && skin && eye && shirt && ctx){
             const backgroundImage = new globalThis.Image();
             backgroundImage.onload = () =>  {
@@ -301,7 +298,7 @@ const NftContainer = () => {
                   primaryButtonText: "#ffffff",
                   secondaryButtonText: "#ffffff",
             }})}>
-               { !isMinting ? "MINT" :
+               { !isMinting ? "MINT | .01 ETH" :
                     "MINTING..."
                  }  
             </Web3Button>
