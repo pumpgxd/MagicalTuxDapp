@@ -154,8 +154,6 @@ const NftContainer = () => {
             handleErrorMint(metadata.error);
             return;
         }
-        console.log(metadata)
-        // const tx = await contract?.mintTo(address || "", metadata)
         const tx = await contract?.signature.mint(metadata);
         const receipt = tx.receipt;  
         console.log(receipt)  
@@ -307,7 +305,7 @@ const NftContainer = () => {
         }/>
         </div>  
         </div>
-        <canvas hidden ref={uploadCanvasRef} width="2048" height="2048" />
+        <canvas hidden ref={uploadCanvasRef} className="hidden" width="2048" height="2048" />
     </div>
    
 
