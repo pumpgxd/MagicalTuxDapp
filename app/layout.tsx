@@ -12,6 +12,7 @@ const ubuntu= Lato({ subsets: ["latin"], weight: "700" });
 export const metadata: Metadata = {
   title: "Magical Tux",
   description: "OP's #1 Cat",
+  icons: "./main-cat.svg"
 };
 
 

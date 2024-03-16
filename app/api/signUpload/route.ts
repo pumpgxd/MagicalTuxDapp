@@ -2,6 +2,7 @@ import { ThirdwebStorage } from '@thirdweb-dev/storage';
 import { NextResponse, NextRequest } from 'next/server'
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 import { OpSepoliaTestnet } from "@thirdweb-dev/chains"
+import { AwsSecretsManagerWallet } from "@thirdweb-dev/wallets/evm/wallets/aws-secrets-manager";
 
 export async function POST(req: NextRequest) {
     if(req.method != 'POST') {
@@ -14,7 +15,19 @@ export async function POST(req: NextRequest) {
     }
     const TW_SECRET_KEY = process.env.TW_SECRET_KEY;
 
-    const sdk = ThirdwebSDK.fromPrivateKey(process.env.DEV_KEY as string, OpSepoliaTestnet,
+    const wallet = new AwsSecretsManagerWallet({
+        secretId: "walletKey", // ID of the secret value
+        secretKeyName: "walletKey", // Name of the secret value
+        awsConfig: {
+          region: "us-east-2", // Region where your secret is stored
+          credentials: {
+            accessKeyId: process.env.AWS_ACCESS_KEY_ID, // Add environment variables to store your AWS credentials
+            secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY, // Add environment variables to store your AWS credentials
+          },
+        },
+      });
+
+    const sdk = await ThirdwebSDK.fromWallet(wallet, OpSepoliaTestnet,
         { secretKey: TW_SECRET_KEY}
       );
  
@@ -22,6 +35,13 @@ export async function POST(req: NextRequest) {
     const file = formData.get("image") as Blob | null;
     const collectionAddy = formData.get("collectionAddy") as string;
     const address = formData.get("address") as string;
+    const background = formData.get("background") as string;
+    const skin = formData.get("skin") as string;
+    const eyes = formData.get("eyes") as string;
+    const shirt = formData.get("shirt") as string;
+    const mouth = formData.get("mouth") as string;
+    const hatHair = formData.get("hatHair") as string;
+  
 
     const nftCollection = await sdk.getContract(
             collectionAddy,
@@ -78,9 +98,17 @@ export async function POST(req: NextRequest) {
             
             const id = await nftCollection.call("nextTokenIdToMint");
             const metadata = {
-                name: `tuxy#${id}`,
-                description: "tux gang",
-                image: uriResponse
+                name: `TuxOG#${id}`,
+                description: "Tux OG",
+                image: uriResponse,
+                attributes: [
+                    {"trait_type": "Background",  "value": background},
+                    {"trait_type": "Skin",  "value": skin},
+                    {"trait_type": "Eyes",  "value": eyes},
+                    {"trait_type": "Shirt",  "value": shirt},
+                    {"trait_type": "Mouth",  "value": mouth},
+                    {"trait_type": "Hat/Hair",  "value": hatHair}
+                ]
             }
             const metaDataResponse = await storage.upload(JSON.stringify(metadata))
 

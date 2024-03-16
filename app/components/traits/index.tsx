@@ -2,14 +2,14 @@ import NextImage from "next/image";
 import { chakra, Image } from "@chakra-ui/react";
 import { Dispatch, FunctionComponent, SetStateAction } from "react";
 
-const NftTrait = chakra(NextImage, {
-    baseStyle: { maxH: 120, maxW: 120 },
-    shouldForwardProp: (prop) => ['width', 'height', 'src', 'alt', 'border', 'borderWidth', 'borderStyle', 'borderColor', 'onClick', 'crossOrigin', 'onHover'].includes(prop),
-  })
+
+interface Trait {
+    name: string;
+    url: string;
+  }
 
 
-
-const Traits: FunctionComponent<{traitList: Array<string>, activeTrait: string, setTrait: Dispatch<SetStateAction<string>>}> = (props) => {
+const Traits: FunctionComponent<{traitList: Array<Trait>, activeTrait: Trait, setTrait: Dispatch<SetStateAction<Trait>>}> = (props) => {
 
 
     return (
@@ -22,9 +22,9 @@ const Traits: FunctionComponent<{traitList: Array<string>, activeTrait: string, 
             borderColor={props.activeTrait === t ? '#194db5' : "white"}
             className="bg-slate-800 rounded-xl cursor-pointer m-1 hover:scale-105"
             crossOrigin="anonymous"
-            key={t}
-            alt={t}
-            src={t}
+            key={t.name}
+            alt={t.name}
+            src={t.url}
             onClick={() => props.setTrait(t)}
             width={65}
             height={65}

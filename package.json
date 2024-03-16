@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@aws-sdk/client-secrets-manager": "^3.535.0",
     "@chakra-ui/icons": "^2.1.1",
     "@chakra-ui/next-js": "^2.2.0",
     "@chakra-ui/react": "^2.8.2",
@@ -19,6 +20,7 @@
     "@thirdweb-dev/chains": "^0.1.65",
     "@thirdweb-dev/react": "^4.4.0",
     "@thirdweb-dev/sdk": "^4.0.28",
+    "@thirdweb-dev/wallets": "^2.4.22",
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.2.1",
     "@walletconnect/web3wallet": "^1.10.0",
