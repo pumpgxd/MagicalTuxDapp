@@ -17,6 +17,7 @@ const Traits: FunctionComponent<{traitList: Array<Trait>, activeTrait: Trait, se
         <div className="flex flex-row items-start flex-wrap">
         {props.traitList.map((t) => (
         <Image
+            loading="lazy"
             borderWidth={props.activeTrait === t ? 2 : 1}
             borderStyle="solid"
             borderColor={props.activeTrait === t ? '#194db5' : "white"}
