@@ -6,6 +6,7 @@ import Navbar from "./components/navigation/navbar";
 import FooterBar from "./components/navigation/footer";
 import Providers from "./_providers/providers";
 // import ParticlesBackground from "./components/particlesBackground";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const ubuntu= Lato({ subsets: ["latin"], weight: "700" });
 
@@ -41,6 +42,7 @@ export default function RootLayout({
                   
                 }}/>
                 {children}
+                  <SpeedInsights/>
                 </Providers>
               <FooterBar/>
         </div>
