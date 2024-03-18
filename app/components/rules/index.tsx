@@ -14,26 +14,26 @@ const Rules = () => {
                             <div className="flex flex-col gap-1">
                                 <p className="text-2xl max-lg:text-lg [text-shadow:_10px_10px_20px_rgb(0_0_0_/_70%)] text-[#ff0420]" >Gamified NFTux Contest</p>
                             </div>
-                            <div className="text-md z-40 w-5/6 max-lg:w-1/2">
+                            <div className="text-md z-40 w-5/6">
                                 <p> We&apos;re thrilled to offer you the opportunity to mint your very own Magical Tux NFT and stand a chance to win $TUX bags!</p>
                             </div>
-                            <div className="z-40 w-5/6 max-lg:w-1/2">
+                            <div className="z-40 w-5/6">
                                 <p className="text-md text-[#ff0420]">Prize Pool</p>
                                 <p className="text-sm">The total prize pool is valued at 2.5 ETH worth of $Tux.</p>
                             </div>
-                            <div className="z-40 w-5/6 max-lg:w-1/2">
+                            <div className="z-40 w-5/6">
                                 <p className="text-md text-[#ff0420]">Minting Fee</p>
                                 <p className="text-sm">The cost to mint an NFT is set at 0.01 ETH.</p>
                             </div>
-                            <div className="z-40 w-5/6 max-lg:w-1/2">
+                            <div className="z-40 w-5/6">
                                 <p className="text-md text-[#ff0420]">Total Mints/Entries</p>
                                 <p className="text-sm">There are a total of 300 NFTs available to mint.</p>
                             </div>
-                            <div className="z-40 w-5/6 max-lg:w-1/2">
+                            <div className="z-40 w-5/6">
                                 <p className="text-md text-[#ff0420]">How to Enter</p>
                                 <p className="text-sm">Simply mint an NFT, and your wallet will automatically be entered into the contest.</p>
                             </div>
-                            <div className="z-40 w-5/6 max-lg:w-1/2">
+                            <div className="z-40 w-5/6">
                                 <p className="text-md text-[#ff0420]">Results and Winner Announcements</p>
                                 <p className="text-sm">Winners will be drawn and announced via a live stream hosted by the Magical Tux team. The stream will be scheduled once the collection is fully minted and the contest is closed.</p>
                             </div>
