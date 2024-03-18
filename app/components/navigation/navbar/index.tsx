@@ -110,7 +110,7 @@ const Navbar = () => {
                   </MenuButton>
                   <MenuList sx={{minW: "0px", w: 'fit-content', borderColor: "#ff0420", opacacity: "20%", }} border="1px" as={Box} borderStyle="solid"  borderRadius="8%" bg="black">
                     <MenuItem as={Link} href={navLinks.nfts} w="100%" bg="black" _hover={{bg: "gray.800"}}>
-                        Mint
+                        NFTux
                     </MenuItem>
                     <MenuItem as={Link} href={navLinks.nftPortfolio} w="100%" bg="black" _hover={{bg: "gray.800"}}>
                       Portfolio

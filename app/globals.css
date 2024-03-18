@@ -47,3 +47,11 @@ body {
   background-size: 66px 66px;
   background-position: 0 0,33px 33px;
 }
+
+#rules {
+  background-color: #000000;
+  opacity: 1;
+  background-image:  radial-gradient(#FF0420 1.6500000000000001px, transparent 1.6500000000000001px), radial-gradient(#FF0420 1.6500000000000001px, #000000 1.6500000000000001px);
+  background-size: 66px 66px;
+  background-position: 0 0,33px 33px;
+}

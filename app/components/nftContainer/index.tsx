@@ -5,6 +5,7 @@ import { useAddress, useContract, Web3Button, darkTheme, useChainId } from "@thi
 import { toast } from 'react-hot-toast';
 import { backgrounds, shadows, skins, eyes, clothes, outlines, mouths, hatsHair } from "@/app/constants/traitUrls";
 import Traits from '@/app/components/traits'
+import Rules from '@/app/components/rules'
 import {
     Accordion,
     AccordionItem,
@@ -32,8 +33,7 @@ const NftContainer = () => {
     const [mouth, setMouth] = useState<Trait>(mouths[1])
     const [hatHair, setHatHair] = useState<Trait>(hatsHair[1])
     const [isMinting, setIsMinting] = useState(false);
-    const canvasRef = useRef<HTMLCanvasElement>(null)
-    const originalDim = 2048;
+    const canvasRef = useRef<HTMLCanvasElement>(null);
 
 
     useEffect(() => {
@@ -172,6 +172,7 @@ const NftContainer = () => {
 
     return (
         <div className="z-1 w-full min-h-screen">
+            <Rules/>
         <div className="flex w-5/6 m-auto flex-row items-center max-lg:flex-col-reverse justify-between">
          <div className="w-1/2 max-lg:w-full ">
          <TextTrans time="1000" text={   
@@ -293,7 +294,6 @@ const NftContainer = () => {
         }/>
         </div>  
         </div>
-        {/* <canvas hidden ref={uploadCanvasRef} className="hidden" width="2048" height="2048" /> */}
     </div>
    
 
