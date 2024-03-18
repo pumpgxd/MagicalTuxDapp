@@ -12,7 +12,6 @@ export async function POST(req: NextRequest){
     const alchemy = new Alchemy(settings);
     const requestBody = await req.json();
 
-    const chainId = requestBody.chainId;
     const walletAddress = requestBody.walletAdd;
 
 
