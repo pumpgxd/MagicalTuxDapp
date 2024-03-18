@@ -27,7 +27,6 @@ export const Widget = () => {
             },
             switchChain: async (chainId: number) => {
               await wallet?.switchChain(chainId);
-              console.log(chainId)
               if (signer) {
                 return signer;
               } else {
