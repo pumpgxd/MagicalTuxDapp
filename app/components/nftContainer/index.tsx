@@ -33,7 +33,6 @@ const NftContainer = () => {
     const [hatHair, setHatHair] = useState<Trait>(hatsHair[1])
     const [isMinting, setIsMinting] = useState(false);
     const canvasRef = useRef<HTMLCanvasElement>(null)
-    const uploadCanvasRef = useRef<HTMLCanvasElement>(null);
     const originalDim = 2048;
 
 
@@ -42,51 +41,40 @@ const NftContainer = () => {
 
         const canvas = canvasRef.current;
         const ctx = canvas.getContext('2d');
-        const uploadCanvas = uploadCanvasRef.current;
-        const uploadCtx = uploadCanvas.getContext('2d');
         
         if (background && skin && eye && shirt && ctx){
             const backgroundImage = new globalThis.Image();
             backgroundImage.onload = () =>  {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height)
-                uploadCtx.clearRect(0, 0, originalDim, originalDim);
-                uploadCtx.drawImage(backgroundImage, 0, 0, originalDim, originalDim);
                 const shadowImage = new globalThis.Image();
                 shadowImage.onload = () => {
                     ctx.drawImage(shadowImage, 0, 0, canvas.width, canvas.height)
-                    uploadCtx.drawImage(shadowImage, 0, 0, originalDim, originalDim);
 
                 const skinImage = new globalThis.Image();
                 skinImage.onload = () => {
                     ctx.drawImage(skinImage, 0, 0, canvas.width, canvas.height)
-                    uploadCtx.drawImage(skinImage, 0, 0, originalDim, originalDim);
 
                 
                 const eyeImage = new globalThis.Image();
                 eyeImage.onload = () => {
                     ctx.drawImage(eyeImage, 0, 0, canvas.width, canvas.height)
-                    uploadCtx.drawImage(eyeImage, 0, 0, originalDim, originalDim);
 
                     const shirtImage = new globalThis.Image();
                     shirtImage.onload = () => {
                         ctx.drawImage(shirtImage, 0, 0, canvas.width, canvas.height)
-                        uploadCtx.drawImage(shirtImage, 0, 0, originalDim, originalDim);
 
                         const outlineImage = new globalThis.Image();
                         outlineImage.onload = () => {
                             ctx.drawImage(outlineImage, 0, 0, canvas.width, canvas.height)
-                            uploadCtx.drawImage(outlineImage, 0, 0, originalDim, originalDim);
 
                             const mouthImage = new globalThis.Image();
                             mouthImage.onload = () => {
                                 ctx.drawImage(mouthImage, 0, 0, canvas.width, canvas.height)
-                                uploadCtx.drawImage(mouthImage, 0, 0, originalDim, originalDim);
 
                                 const hatHairImage = new globalThis.Image();
                                 hatHairImage.onload = () => {
                                     ctx.drawImage(hatHairImage, 0, 0, canvas.width, canvas.height)
-                                    uploadCtx.drawImage(hatHairImage, 0, 0, originalDim, originalDim);
 
                                 }
                                 hatHairImage.setAttribute("crossOrigin", "anonymous");
@@ -114,12 +102,11 @@ const NftContainer = () => {
         backgroundImage.src = background.url;
         }
         canvas.toBlob
-        uploadCanvas.toBlob;
     }, 
     [background, skin, eye, shirt, mouth, hatHair])
 
     const uploadAndMint = async () => {
-        const uploadCanvas = uploadCanvasRef.current;
+        const uploadCanvas = canvasRef.current;
         if(uploadCanvas) {
           uploadCanvas.toBlob((blob) => {
             if(blob) {
@@ -154,6 +141,7 @@ const NftContainer = () => {
             handleErrorMint(metadata.error);
             return;
         }
+        console.log(metadata);
         const tx = await contract?.signature.mint(metadata);
         const receipt = tx.receipt;  
         console.log(receipt)  
@@ -188,7 +176,7 @@ const NftContainer = () => {
          <div className="w-1/2 max-lg:w-full ">
          <TextTrans time="1000" text={   
         <div className="flex text-white m-auto w-3/4 max-lg:w-5/6 flex-col max-lg:items-center rounded-lg ">
-         <div>
+         <div >
          <Accordion  defaultIndex={[0]}>
             <AccordionItem>
                 <AccordionButton _expanded={{color: '#FF0420' }}>
@@ -275,8 +263,8 @@ const NftContainer = () => {
         </div>
         <div className="w-1/2 max-lg:w-full "> 
         <TextTrans time="1000" text={
-        <div className="flex flex-col m-auto h-5/6 pt-24 items-center max-lg:w-full w-1/2 ">
-            <canvas ref={canvasRef} width="500" height="500" className="rounded-xl max-lg:w-2/3 border-2 border-[#ffffff]" />
+        <div className="flex flex-col m-auto h-5/6 pt-24 items-center max-lg:w-full w-5/6 ">
+            <canvas ref={canvasRef} width="2048" height="2048" className="rounded-xl h-full w-full max-lg:w-2/3 border-2 border-[#ffffff]" />
             <div className="p-8 flex m-auto items-center">
             <Web3Button
             className="hover:bg-white hover:text-black m-auto"
@@ -305,7 +293,7 @@ const NftContainer = () => {
         }/>
         </div>  
         </div>
-        <canvas hidden ref={uploadCanvasRef} className="hidden" width="2048" height="2048" />
+        {/* <canvas hidden ref={uploadCanvasRef} className="hidden" width="2048" height="2048" /> */}
     </div>
    
 
