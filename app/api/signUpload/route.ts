@@ -1,7 +1,7 @@
 import { ThirdwebStorage } from '@thirdweb-dev/storage';
 import { NextResponse, NextRequest } from 'next/server'
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
-import { OpSepoliaTestnet } from "@thirdweb-dev/chains"
+import { Optimism } from "@thirdweb-dev/chains"
 import { AwsSecretsManagerWallet } from "@thirdweb-dev/wallets/evm/wallets/aws-secrets-manager";
 
 export async function POST(req: NextRequest) {
@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
         },
       });
 
-    const sdk = await ThirdwebSDK.fromWallet(wallet, OpSepoliaTestnet,
+    const sdk = await ThirdwebSDK.fromWallet(wallet, Optimism,
         { secretKey: TW_SECRET_KEY}
       );
  

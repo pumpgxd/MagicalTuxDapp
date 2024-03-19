@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 
 const settings = {
     apiKey: process.env.ALCHEMY_API_KEY,
-    network: Network.OPT_SEPOLIA,
+    network: Network.OPT_MAINNET,
     mode: "no-cors"
 };
 
