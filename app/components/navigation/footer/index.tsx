@@ -2,7 +2,6 @@ import { FaTelegram } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaChartBar } from "react-icons/fa";
 import React from "react"
-import Image from 'next/image'
 
 const FooterBar = () => {
     return (
@@ -38,27 +37,6 @@ const FooterBar = () => {
             </a>
 
           </div>
-          {/* <div>
-            <div className="flex flex-row text-nowrap items-center text-center gap-2">
-              <p className="text-xs">Powered By:</p>
-              <Image       
-                  src="/Alchemy.png"
-                  alt="Tux cat"
-                  color="white"
-                  width={80}
-                  height={8}
-                  priority
-                />
-                <Image
-                  src="/twlogo.png"
-                  alt="Tux cat"
-                  color="white"
-                  width={80}
-                  height={8}
-                  priority
-                />
-            </div>
-        </div> */}
         </div>
       </div>
     )

@@ -23,9 +23,7 @@ const Token = () => {
                         }}>
                         <div className="flex border border-slate-700/50 rounded-lg bg-black flex-col text-pretty justify-evenly text-white items-center z-40 max-lg:h-1/2 w-full py-6 max-lg:w-full gap-10 rounded-lg">
                             <div className="flex flex-col gap-1">
-                                {/* <div> */}
                                 <p className="text-2xl max-lg:text-lg [text-shadow:_10px_10px_20px_rgb(0_0_0_/_70%)]" >$TUX</p>
-                                {/* </div> */}
                                 <div className="flex flex-row gap-1">
                                     <p className="text-xs text-[#FF0420] [text-shadow:_10px_10px_20px_rgb(0_0_0_/_70%)]">Contract Address</p>
                                         <CopyToClipboard text="0x17aabf6838a6303fc6e9c5a227dc1eb6d95c829a">

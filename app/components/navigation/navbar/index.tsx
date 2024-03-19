@@ -10,10 +10,8 @@ import {Menu,
   ModalOverlay,
   ModalContent,
   ModalHeader,
-  ModalFooter,
   ModalBody,
   ModalCloseButton,
-  Text,
   useDisclosure, 
   IconButton}from "@chakra-ui/react";
 import { HamburgerIcon } from '@chakra-ui/icons'
@@ -24,14 +22,6 @@ import { useWallet } from '@thirdweb-dev/react';
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const wallet = useWallet();
-
-  const handleModalWalletClick = () => {
-      console.log(wallet);
-      if (!wallet){
-        return onClose;
-      }
-
-  }
   
     return (
       <>
@@ -95,7 +85,6 @@ const Navbar = () => {
               </Link>
               </li>
               <li>
-  
                 <Menu isLazy>
                   <MenuButton
                     as={Button}
@@ -117,6 +106,20 @@ const Navbar = () => {
                     </MenuItem>
                 </MenuList>
                 </Menu>
+              </li>
+              <li>
+              <Link href={navLinks.merch}  rel="noopener noreferrer" target="_blank">
+                <Button
+                    px={2}
+                    py={2}
+                    fontSize={18}
+                    textColor="white"
+                    _active={{bg: 'black', textColor: '#ff0420'}}
+                    _hover={{ bg: 'black', textColor: '#ff0420'}}
+                    bg="black">
+                  MERCH
+                </Button>
+              </Link>
               </li>
             </ul>
             <div className="max-lg:hidden flex">
@@ -171,6 +174,11 @@ const Navbar = () => {
                 <Link href={navLinks.nftPortfolio}>
                   <div onClick={onClose} className="hover:bg-slate-700/60">
                     NFT Portfolio
+                  </div>
+                </Link>
+                <Link href={navLinks.merch} rel="noopener noreferrer" target="_blank">
+                  <div onClick={onClose} className="hover:bg-slate-700/60">
+                    Merch
                   </div>
                 </Link>
                 </div>

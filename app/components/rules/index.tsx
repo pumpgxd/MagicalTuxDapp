@@ -19,7 +19,7 @@ const Rules = () => {
                             </div>
                             <div className="z-40 w-5/6">
                                 <p className="text-md text-[#ff0420]">Prize Pool</p>
-                                <p className="text-sm">The total prize pool is valued at 2.5 ETH worth of $Tux.</p>
+                                <p className="text-sm">The total prize pool is valued at 2.5 ETH worth of $TUX.</p>
                             </div>
                             <div className="z-40 w-5/6">
                                 <p className="text-md text-[#ff0420]">Minting Fee</p>
@@ -35,7 +35,7 @@ const Rules = () => {
                             </div>
                             <div className="z-40 w-5/6">
                                 <p className="text-md text-[#ff0420]">Results and Winner Announcements</p>
-                                <p className="text-sm">Winners will be drawn and announced via a live stream hosted by the Magical Tux team. The stream will be scheduled once the collection is fully minted and the contest is closed.</p>
+                                <p className="text-sm">Winners will be drawn and announced via live stream hosted by the Magical Tux team. The stream will be scheduled once the collection is fully minted and the contest is closed.</p>
                             </div>
                   
                         </div>

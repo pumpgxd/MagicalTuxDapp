@@ -3,5 +3,6 @@ export const navLinks = {
     optimism: "/optimism",
     bridge: "/bridge",
     nfts: "/nfts",
-    nftPortfolio: "/nftPortfolio"
+    nftPortfolio: "/nftPortfolio",
+    merch: "https://magical-tux.printify.me/products"
 }
