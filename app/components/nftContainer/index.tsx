@@ -6,6 +6,7 @@ import { toast } from 'react-hot-toast';
 import { backgrounds, shadows, skins, eyes, clothes, outlines, mouths, hatsHair } from "@/app/constants/traitUrls";
 import Traits from '@/app/components/traits'
 import Rules from '@/app/components/rules'
+import Link from 'next/link'
 import {
     Accordion,
     AccordionItem,
@@ -141,13 +142,12 @@ const NftContainer = () => {
             handleErrorMint(metadata.error);
             return;
         }
-        console.log(metadata);
         const tx = await contract?.signature.mint(metadata);
         const receipt = tx.receipt;  
-        console.log(receipt)  
-        console.log(tx);
+        // console.log(receipt)  
+        // console.log(tx);
         toast.dismiss(loadingToast);
-        handleSuccessMint();
+        handleSuccessMint(receipt.transactionHash);
         return tx;     
 
         } catch (e) {
@@ -158,8 +158,12 @@ const NftContainer = () => {
         }
       }
 
-      const handleSuccessMint = () => {
-        toast.success("NFT Successfully Minted!")
+      const handleSuccessMint = (txHash : string) => {
+        // https://optimistic.etherscan.io/tx/
+        const txLink = `https://sepolia-optimistic.etherscan.io/tx/${txHash}`
+        toast.success(<div>
+            <p>NFT Successfully Minted</p>
+                <Link className="text-[#FF0420]" href={txLink} rel="noopener noreferrer" target="_blank">View Transaction</Link></div>)
         setIsMinting(false);
       }
 

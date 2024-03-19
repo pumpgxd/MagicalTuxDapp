@@ -14,6 +14,7 @@ export async function POST(req: NextRequest) {
         
     }
     const TW_SECRET_KEY = process.env.TW_SECRET_KEY;
+    const collectionAddy = process.env.NEXT_PUBLIC_NFT_GEN_ADDY;
 
     const wallet = new AwsSecretsManagerWallet({
         secretId: "walletKey", // ID of the secret value
@@ -33,7 +34,6 @@ export async function POST(req: NextRequest) {
  
     const formData = await req.formData();
     const file = formData.get("image") as Blob | null;
-    const collectionAddy = formData.get("collectionAddy") as string;
     const address = formData.get("address") as string;
     const background = formData.get("background") as string;
     const skin = formData.get("skin") as string;
@@ -49,29 +49,14 @@ export async function POST(req: NextRequest) {
         );    
 
   
-    // const hasMinted = (await nftCollection.balanceOf(address)).gt(0);
-    //     if (hasMinted) {
-    //     return NextResponse.json({
-    //         error: "Wallet already minted!"
-    //     }, {
-    //         status: 400
-    //         });
-    //     }    
-
-    // const tux = await sdk.getContract(
-    //         process.env.TUX_ADDY,
-    //         "token"
-    // );    
-
-    // const tuxBalance = await tux.balanceOf(address);
-    //     if (tuxBalance.value.toBigInt() < 100000){
-    //         console.log(tuxBalance.value);
-    //         return NextResponse.json({
-    //             error: "Must hold 100K $Tux to mint!"
-    //         }, {
-    //             status: 400
-    //         })
-    //     }
+    const totalMints = await nftCollection.totalSupply();
+        if (totalMints.toNumber() >= 300) {
+        return NextResponse.json({
+            error: "300 mints reached! Contest is closed"
+        }, {
+            status: 400
+            });
+        }    
 
         if(!file) {
             return NextResponse.json({
@@ -89,6 +74,7 @@ export async function POST(req: NextRequest) {
             })
         }
 
+
         try {
             const storage = new ThirdwebStorage({secretKey: process.env.TW_SECRET_KEY});
             
@@ -99,7 +85,7 @@ export async function POST(req: NextRequest) {
             const id = await nftCollection.call("nextTokenIdToMint");
             const metadata = {
                 name: `TuxOG#${id}`,
-                description: "Tux OG",
+                description: "Magical Tux OG Collection",
                 image: uriResponse,
                 attributes: [
                     {"trait_type": "Background",  "value": background},

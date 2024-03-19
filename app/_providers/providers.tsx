@@ -2,7 +2,7 @@
 import React from 'react'
 import { ChakraProvider, extendTheme } from '@chakra-ui/react'
 import { ThirdwebProvider, metamaskWallet, coinbaseWallet, walletConnect, trustWallet, rainbowWallet, zerionWallet, darkTheme } from "@thirdweb-dev/react";
-import { OpSepoliaTestnet, Optimism, Ethereum } from "@thirdweb-dev/chains";
+import { OpSepoliaTestnet, Optimism, Ethereum, Base } from "@thirdweb-dev/chains";
 
 const theme = extendTheme({
   styles: {
@@ -36,7 +36,7 @@ const Providers = ({children}: ProviderType) => {
             rainbowWallet(),
             zerionWallet()
         ]} 
-        supportedChains={[OpSepoliaTestnet, Optimism, Ethereum]}
+        supportedChains={[OpSepoliaTestnet, Optimism, Ethereum, Base]}
         clientId={process.env.TUX_CLIENT_ID}
         theme={darkTheme({
             colors: {
