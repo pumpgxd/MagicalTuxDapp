@@ -15,7 +15,7 @@ const Rules = () => {
                                 <p className="text-2xl max-lg:text-lg [text-shadow:_10px_10px_20px_rgb(0_0_0_/_70%)] text-[#ff0420]" >Gamified NFTux Contest</p>
                             </div>
                             <div className="text-md z-40 w-5/6">
-                                <p> We&apos;re thrilled to offer you the opportunity to mint your very own Magical Tux NFT and stand a chance to win $TUX bags!</p>
+                                <p>Welcome to the Gamified NFTux contest! We&apos;re thrilled to offer you the opportunity to mint your very own Magical Tux NFT and stand a chance to win $TUX bags!</p>
                             </div>
                             <div className="z-40 w-5/6">
                                 <p className="text-md text-[#ff0420]">Prize Pool</p>
