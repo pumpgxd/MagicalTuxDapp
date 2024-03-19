@@ -159,8 +159,7 @@ const NftContainer = () => {
       }
 
       const handleSuccessMint = (txHash : string) => {
-        // https://optimistic.etherscan.io/tx/
-        const txLink = `https://sepolia-optimistic.etherscan.io/tx/${txHash}`
+        const txLink = `https://optimistic.etherscan.io/tx/${txHash}`
         toast.success(<div>
             <p>NFT Successfully Minted</p>
                 <Link className="text-[#FF0420]" href={txLink} rel="noopener noreferrer" target="_blank">View Transaction</Link></div>)
