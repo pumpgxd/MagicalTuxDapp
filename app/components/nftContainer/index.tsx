@@ -1,7 +1,7 @@
 import React from "react"
 import { useState, useRef, useEffect } from 'react';
 import TextTrans from "../fontTrans";
-import { useAddress, useContract, Web3Button, darkTheme, useChainId } from "@thirdweb-dev/react";
+import { useAddress, useContract, Web3Button, darkTheme } from "@thirdweb-dev/react";
 import { toast } from 'react-hot-toast';
 import { backgrounds, shadows, skins, eyes, clothes, outlines, mouths, hatsHair } from "@/app/constants/traitUrls";
 import Traits from '@/app/components/traits'

@@ -36,7 +36,7 @@ const Providers = ({children}: ProviderType) => {
             rainbowWallet(),
             zerionWallet()
         ]} 
-        supportedChains={[OpSepoliaTestnet, Optimism, Ethereum, Base]}
+        supportedChains={[Optimism, Ethereum, Base, OpSepoliaTestnet]}
         clientId={process.env.TUX_CLIENT_ID}
         theme={darkTheme({
             colors: {
