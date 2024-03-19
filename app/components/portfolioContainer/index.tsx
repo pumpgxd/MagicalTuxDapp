@@ -39,7 +39,7 @@ const PortfolioContainer = () => {
             !noNfts ? 
             nfts.map((nft) => (
                 <TextTrans key={nft.tokenId} time="1000"  text={
-                <div key={nft.tokenId} className="mx-4 my-4 flex h-80 w-64 cursor-pointer flex-col rounded-lg border border-white items-center justify-center gap-5 bg-transparent transition-all duration-300 hover:scale-105 hover:z-0">
+                <div key={nft.tokenId} className="mx-4 my-4 flex h-80 w-64 flex-col rounded-lg border border-white items-center justify-center gap-5 bg-transparent transition-all duration-300 hover:scale-105 hover:z-0">
                     <ThirdwebNftMedia
                     key={nft.tokenId}
                     height="100%"
