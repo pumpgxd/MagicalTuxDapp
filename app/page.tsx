@@ -1,4 +1,3 @@
-
 import React from "react";
 import ImageContent from "./components/imageContent";
 import Token from "./token";
@@ -6,9 +5,9 @@ import { Card, Text, Stack, Heading } from "@chakra-ui/react";
 import TextTrans from "./components/fontTrans";
 
 export default function Home() {
-
   return (
      <div>
+    
       <div className="w-full min-h-screen tracking-wide z-1">
       <TextTrans time="1000" text={
         <div className="flex flex-col my-24 max-md:my-12 items-center m-auto justify-between gap-20 h-5/6">
