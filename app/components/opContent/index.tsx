@@ -35,7 +35,9 @@ return (
                     rel="noopener noreferrer">
                 <Card label={"BRIDGE ETH TO OPTIMISM"} src="/optimism-city.png"  width={270} rounded="none"/>
                 </a>
-                <a href="https://www.optimism.io/dapps">
+                <a href="https://www.optimism.io/apps"
+                    target="_blank"
+                    rel="noopener noreferrer">
                 <Card label={"OPTIMISM ECOSYSTEM"} src="/tuxNft.jpeg" width={190} rounded="full"/>
                 </a>
                 </div>
