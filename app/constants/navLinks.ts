@@ -4,5 +4,6 @@ export const navLinks = {
     bridge: "/bridge",
     nfts: "/nfts",
     nftPortfolio: "/nftPortfolio",
-    merch: "https://magical-tux.printify.me/products"
+    merch: "https://magical-tux.printify.me/products",
+    email: "mailto:team@magicaltux.site"
 }

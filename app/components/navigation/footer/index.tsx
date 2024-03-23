@@ -1,7 +1,9 @@
 import { FaTelegram } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaChartBar } from "react-icons/fa";
+import { AiOutlineMail } from "react-icons/ai";
 import React from "react"
+import { navLinks } from "@/app/constants/navLinks";
 
 const FooterBar = () => {
     return (
@@ -35,7 +37,13 @@ const FooterBar = () => {
               <FaChartBar className="hover:text-gray-100 m-auto"/>
 
             </a>
-
+            <a
+              href={navLinks.email}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <AiOutlineMail className="hover:text-gray-100 m-auto"/>
+              </a>
           </div>
         </div>
       </div>
